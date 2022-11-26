@@ -2,5 +2,12 @@ baseURL = 'https://wiki.trwnh.com/'
 languageCode = 'en-us'
 title = 'wiki.trwnh.com'
 
+[frontmatter]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+
 [params]
 use_titles_in_section_lists = false
