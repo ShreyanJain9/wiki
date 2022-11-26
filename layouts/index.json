@@ -1,7 +1,7 @@
 {{- $.Scratch.Add "pagesIndex" slice -}}
 {{- range $index, $page := .Site.RegularPages -}}
     {{- if gt (len $page.Content) 0 -}}
-      {{- $pageData := (dict "title" $page.Title "href" $page.Permalink "content" $page.Plain) -}}
+      {{- $pageData := (dict "title" (or $page.Title $page.File.LogicalName) "href" $page.Permalink "content" $page.Plain) -}}
       {{- $.Scratch.Add "pagesIndex" $pageData -}}
     {{- end -}}
 {{- end -}}
