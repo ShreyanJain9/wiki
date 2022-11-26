@@ -1,0 +1,49 @@
+{{ define "main" }}
+<main>
+	<section class="section list">
+		<div class="container">
+			<header class="section-header">
+				{{ if .IsHome }}
+				<h1 class="section-title">{{.Site.Title}}</h1>
+				{{ else }}
+				<h1 class="section-title">{{.File.Dir}}</h1>
+				{{ end }}
+			</header>
+			{{ with .Sections }}
+				<nav>
+				<h2 class="subsections-title">Sub-sections of {{ or $.File.ContentBaseName "index" }}</h2>
+				<ul class="subsections">
+				{{ range where . "Section" "!=" "search" }}
+					<li>
+						<a href="{{ .Permalink }}">
+							{{ path.Base (path.Split .File.Path).Dir }}/
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+				</nav>
+			{{ end }}
+			{{ with .RegularPages }}
+				<nav>
+				<h2 class="subpages-title">Pages within {{ or $.File.ContentBaseName "index" }}</h2>
+				<ul class="subpages">
+				{{ range . }}
+					<li>
+						<a href="{{ .Permalink }}">
+							{{ $header := substr (delimit (findRE "^#{1} ([^{\n]+)" .RawContent 1) "") 2 }}
+
+							{{ if .Site.Params.use_titles_in_section_lists}}
+							{{ or .Title $header .File.BaseFileName }}
+							{{ else }}
+							{{ .File.LogicalName }}
+							{{ end }}
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+				</nav>
+			{{ end }}
+		</div>
+	</section>
+</main>
+{{ end }}

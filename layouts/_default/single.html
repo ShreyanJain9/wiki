@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main>
+	<article class="page" {{- if .Param "autonumbering" }} autonumbering {{- end }}>
+		{{ with .Title}}
+		<header class="section page-header">
+			<div class="container">
+				<h1 class="page-title">{{ . }}</h1>
+			</div>
+		</header>
+		{{ end }}
+		{{ if .Params.toc }}
+		<aside class="toc section">
+			<div class="container">
+				<p class="toc-title">Page outline</p>
+			{{ .TableOfContents }}
+			</div>
+		</aside>
+		{{ end }}
+		<section class="content section">
+			<div class="container">
+				{{ .Content }}
+			</div>
+		</section>
+	</article>
+</main>
+{{ end }}

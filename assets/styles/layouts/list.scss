@@ -1,0 +1,25 @@
+.subsections,
+.subpages {
+	list-style: disc;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	li {
+		margin-left: 1em;
+		margin-bottom: 1em;
+	}
+	a {
+
+	}
+}
+.section-title {
+	font-size: 2em;
+	border-bottom: 1px solid var(--ui-text-muted);
+	padding-bottom: 0.5em;
+	margin-bottom: 1em;
+}
+.subsections-title,
+.subpages-title {
+	margin-top: 1em;
+	font-weight: 500;
+	text-decoration: underline;
+}

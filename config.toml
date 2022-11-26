@@ -1,0 +1,6 @@
+baseURL = 'https://wiki.trwnh.com/'
+languageCode = 'en-us'
+title = 'wiki.trwnh.com'
+
+[params]
+use_titles_in_section_lists = false

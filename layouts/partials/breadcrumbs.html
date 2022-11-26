@@ -1,0 +1,27 @@
+<nav class="breadcrumb-nav">
+	<div class="container">
+		<p class="title">You are here:</p>
+		<ul class="breadcrumbs">
+			{{ template "breadcrumb" (dict "p1" . "p2" .) }}
+		</ul>
+	</div>
+</nav>
+ 
+ {{ define "breadcrumb" }}
+	{{ if .p1.Parent }}
+	  {{ template "breadcrumb" (dict "p1" .p1.Parent "p2" .p2 )  }}
+	{{ else if not .p1.IsHome }}
+	  {{ template "breadcrumb" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+	{{ end }}
+	<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
+		{{/* $header := substr (delimit (findRE "^#{1} ([^{\n]+)" .p1.RawContent 1) "") 2 */}}
+		
+	  <a href="{{ .p1.RelPermalink }}">
+		{{ if eq .p1.Kind "page" }}
+		{{ .p1.File.LogicalName }}
+		{{ else }}
+		{{ or .p1.File.ContentBaseName .p1.Site.Title }}
+		{{ end }}
+	  </a>
+	</li>
+ {{ end }}
