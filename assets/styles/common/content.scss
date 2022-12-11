@@ -1,6 +1,6 @@
 .content {
 	/* text */
-	p, li {max-width: 80ch;}
+	p, li {max-inline-size: 80ch;}
 	h1 {font-size: 1.8em}
 	h2 {font-size: 1.6em}
 	h3 {font-size: 1.423em}
@@ -9,13 +9,13 @@
 	h6 {font-size: 1em}
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.2;
-		margin-bottom: 1rem;
-		margin-top: 2rem;
+		margin-block-start: 2rem;
+		margin-block-end: 1rem;
 		font-weight: 700;
 	}
 	p {
 		line-height: 2;
-		margin-bottom: 1em;
+		margin-block-end: 1em;
 	}
 	a {
 		word-wrap: break-word;
@@ -28,7 +28,7 @@
 	sup {
 		position: relative;
 		font-size: var(--script-size);
-		top: -1em;
+		inset-block-start: -1em;
 	}
 	sub {
 		position: relative;
@@ -61,8 +61,8 @@
 		background: var(--primary-accent-transparent);
 		color: var(--ui-text);
 		--pad-x-highlight: 0.125em;
-		padding-left: var(--pad-x-highlight);
-		padding-right: var(--pad-x-highlight);
+		padding-inline-start: var(--pad-x-highlight);
+		padding-inline-end: var(--pad-x-highlight);
 	}
 	abbr[title]:after {
 		content: '?';
@@ -70,23 +70,23 @@
 		color: var(--ui-text-muted);
 	}
 	/* lists */
-	ul {list-style: disc; margin: 1em 0;}
-	li {margin-bottom: 1em; line-height: 1.4; margin-left: 1em;}
-	ol {list-style: decimal; margin: 1em 0;}
-	dl {margin: 1em 0; line-height: 1.4;}
+	ul {list-style: disc; margin-block: 1em;}
+	li {margin-block-end: 1em; line-height: 1.4; margin-inline-start: 1em;}
+	ol {list-style: decimal; margin-block: 1em;}
+	dl {margin-block: 1em; line-height: 1.4;}
 	dt {font-weight: 700;}
-	dd {margin-left: 1em;}
+	dd {margin-inline-start: 1em;}
 	/* block elements */
 	img {
 		width: 100%;
-		margin-bottom: 1em;
+		margin-block-end: 1em;
 	}
 	blockquote {
 		font-style: italic;
 		font-size: 1em;
 		margin: 1em 0;
-		border-left: 0.25rem solid var(--ui-text-bold);
-		padding-left: 0.75em;
+		border-inline-start: 0.25rem solid var(--ui-text-bold);
+		padding-inline-start: 0.75em;
 		line-height: 1.4;
 	}
 	pre {
@@ -95,11 +95,11 @@
 		color: var(--ui-overlay-text);
 		padding: 1em;
 		line-height: 1.4;
-		overflow-x: auto;
+		overflow-inline: auto;
 		white-space: pre;
 		display: grid;
 		tab-size: 3;
-		margin-bottom: 1em;
+		margin-block-end: 1em;
 	}
 	code {
 		font-family: monospace;
@@ -117,18 +117,18 @@
 		padding: 0;
 	}
 	pre code > span {
-		padding: 0 1em;
+		padding-inline: 1em;
 	}
 	.highlight pre {
-		padding: 1em 0;
+		padding-block: 1em;
 	}
 	/* figures */
 	figure {
-		margin-bottom: 1em;
+		margin-block-end: 1em;
 	}
 	figure img {
 		width: 100%;
-		margin-bottom: -0.125em;
+		margin-block-end: -0.125em;
 	}
 	figcaption {
 		background: #212121;
@@ -158,17 +158,17 @@
 	.hint.info,
 	.hint.tip {
 		background: rgba(142, 226, 142, 0.2);
-		border-left: 4px solid rgb(142, 226, 142);
+		border-inline-start: 4px solid rgb(142, 226, 142);
 	}
 	
 	.hint.warning {
 		background: rgba(218, 226, 142, 0.2);
-		border-left: 4px solid rgb(218, 226, 142);
+		border-inline-start: 4px solid rgb(218, 226, 142);
 	}
 	
 	.hint.danger {
 		background: rgba(226, 142, 142, 0.2);
-		border-left: 4px solid rgb(226, 142, 142);
+		border-inline-start: 4px solid rgb(226, 142, 142);
 	}
 	/* hugo-specific citation footnote */
 	cite sup {
@@ -200,8 +200,8 @@
 			&:after {
 				content: '';
 				width: 100%;
-				margin-left: 1rem;
-				border-bottom: 1px solid var(--ui-text-muted);
+				margin-inline-start: 1rem;
+				border-block-end: 1px solid var(--ui-text-muted);
 			}
 		}
 	}

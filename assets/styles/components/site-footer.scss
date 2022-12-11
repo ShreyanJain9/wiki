@@ -1,7 +1,7 @@
 .site-footer {
 	display: flex;
 	align-items: center;
-	padding: 1em 0;
+	padding-block: 1em;
 
 	hr {display: none;}
 
@@ -29,12 +29,12 @@
 	}
 
 	a[href='#top'] {
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 
 	.lastmod {
 		.edit-link {
-			margin-left: 1em;
+			margin-inline-start: 1em;
 		}
 	}
 	

@@ -1,11 +1,11 @@
 .subsections,
 .subpages {
 	list-style: disc;
-	margin-top: 1em;
-	margin-bottom: 2em;
+	margin-block-start: 1em;
+	margin-block-end: 2em;
 	li {
-		margin-left: 1em;
-		margin-bottom: 1em;
+		margin-inline-start: 1em;
+		margin-block-end: 1em;
 	}
 	a {
 
@@ -13,13 +13,13 @@
 }
 .section-title {
 	font-size: 2em;
-	border-bottom: 1px solid var(--ui-text-muted);
-	padding-bottom: 0.5em;
-	margin-bottom: 1em;
+	border-block-end: 1px solid var(--ui-text-muted);
+	padding-block-end: 0.5em;
+	margin-block-end: 1em;
 }
 .subsections-title,
 .subpages-title {
-	margin-top: 1em;
+	margin-block-start: 1em;
 	font-weight: 500;
 	text-decoration: underline;
 }
