@@ -1,18 +1,16 @@
 # Gotchas
 
-## @context
+{{<toc>}}
 
-** DO NOT VALIDATE @CONTEXT IF YOU DO NOT UNDERSTAND JSON-LD **
+## DO NOT VALIDATE @CONTEXT IF YOU DO NOT UNDERSTAND JSON-LD
 
 you CANNOT check for the presence of `https://www.w3.org/ns/activitystreams` AT ALL -- the activitystreams context may be included within another context hosted elsewhere. just ignore this property entirely if you don't understand it
 
-## id
+## DON'T BE STRICT ABOUT VALIDATING ID
 
-### transient ids
+do NOT try to be overly strict about dereferencing IDs. some IDs may not be on your domain, or otherwise they may not be present at all, or they may be explicitly null. null or missing id indicates a transient activity.
 
-do NOT try to be overly strict about dereferencing IDs. some IDs may not be on your domain, or otherwise they may not be present at all, or they may be explicitly null.
-
-#### example: Follow semantics
+### example: Follow semantics
 
 Follows are realistically transient. it is therefore enough to:
 
@@ -27,21 +25,15 @@ if you receive an Accept/Reject Follow, check ONLY for the following:
 - object.type == Follow
 - object.object == actor
 
-this is enough information, PROVIDED THAT you have a local pending follow request. if you do not have a pending follow, then DO NOT process an incoming Accept Follow. however, you may receive a Reject Follow at any time, indicating that you should destroy that follow relationship. note that you may also receive an Undo Accept Follow by some implementations. this is discouraged but should be handled as well
+if object is inlined, you don't need to check that object.id is local. the above is enough information, PROVIDED THAT you have a local pending follow request. if you do not have a pending follow, then DO NOT process an incoming Accept Follow. however, you may receive a Reject Follow at any time, indicating that you should destroy that follow relationship. note that you may also receive an Undo Accept Follow by some implementations. this is discouraged but should be handled as well
 
-## type
+## DO NOT CHECK TYPES DURING VALIDATION
 
-### Actor
+an Actor has an `inbox` and `outbox`. that's it.
 
-has an `inbox` and `outbox`. that's it.
+an Activity has an `actor`. that's it.
 
-### Activity
-
-has an `actor`. that's it.
-
-## tag
-
-### filter for what you understand
+## DON'T PANIC WHEN YOU SEE A TYPE YOU DON'T UNDERSTAND
 
 say you understand tags of type Mention and Hashtag and Emoji. someone sends you a `tag` array with a raw Link. DON'T PANIC. the document is still valid. just filter out anything you don't understand, something like
 
