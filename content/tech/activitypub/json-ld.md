@@ -16,7 +16,7 @@ basically just URI+. the i stands for "internationalized"
 
 ## json-ld keywords
 
-there are [a lot](https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords "no, seriously") but we only really care about @id and @context really
+there are [a lot](https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords "no, seriously") but we only really care about @id and @context really (and sometimes @type)
 
 ### @id
 
@@ -24,7 +24,11 @@ the identifier for a json-ld node. by "node" we mean like a node on a graph. typ
 
 ### @context
 
-basically a way to map shorthand names to a full iri. 
+basically a way to map shorthand names ("terms") to a full iri, or sometimes to a keyword. you can also define iris or compact iris using a json object that represents the expanded definition.
+
+in short:
+- terms (`foo`) map to iris (`https://example.com/foo`), compact iris (`ex:foo`), or keywords (`@foo`)
+- iris (whether full like `https://example.com/foo` or compact like `ex:foo`) map to expanded definitions (a json object with only keywords inside)
 
 #### namespacing
 
@@ -36,7 +40,7 @@ the activitystreams namespace (or base iri, if you will) is `https://www.w3.org/
 - similarly, consider the `Public` collection, whose full iri is `https://www.w3.org/ns/activitystreams#Public`
 - ...and so on
 
-we can also map some arbitrary string to the base iri. the activitystreams context by default uses `as:` => `https://www.w3.org/ns/activitystreams#`. so instead of typing out the base iri every single time, we can instead type the *shorthand* prefix `as:`, or in other words, `as:actor` or `as:Public`
+we can also map some arbitrary string ("term") to the base iri. the activitystreams context by default uses `as` => `https://www.w3.org/ns/activitystreams#`. so instead of typing out the base iri every single time, we can instead type the *shorthand* prefix `as:`, or in other words, `as:actor` or `as:Public`, to get what is known as a "compact IRI"
 
 note once again the equivalencies:
 
@@ -155,6 +159,8 @@ so if we expand the example document, we get this:
 ```
 
 the point of expansion is to end up with a document that is **completely unambiguous** and doesn't need a @context -- see how everything is expressed purely in terms of keywords, literals, and iris? no shorthands are used, so you know exactly what each term represents.
+
+note that some nodes have an `@id` and some have a `@value`. if you see a value then that is just a raw value (often just a string, but could be a boolean or a number). if you see an id then that is a link to some other document or resource.
 
 ### compaction
 
@@ -322,6 +328,8 @@ the idea is that you can **parse the @graph and then filter that list by @id to 
 ## conclusion
 
 that's pretty much it tbh
+
+as a side note, i recommend that ld-aware implementations compact their jsonld before it is delivered or dereferenced. explainer of the issue here: <https://github.com/w3c/activitypub/issues/359> but tldr non-ld-aware "json only" activitypub impls should have consistent shorthand property names to work with
 
 ## further reading
 
