@@ -62,7 +62,7 @@ Consider the following Article:
 
   "id": "https://social.trwnh.com/about",
   "type": "Article",
-  "content": "<marquee><p>My homepage is <a href="https://trwnh.com" rel="me">trwnh.com</a></p></marquee>",
+  "content": "<marquee><p>My homepage is <a href=\"https://trwnh.com\" rel=\"me\">trwnh.com</a></p></marquee>",
   "tag": [
     {
       "type": "Link",
@@ -90,7 +90,7 @@ In Misskey, a quote is a post that embeds a copy of another post below it. Using
 
   "id": "https://example.com/@alice/statuses/1578798374936652608",
   "type": "Note",
-  "content": "<p>This post is pretty cool <a href="https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b">RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b</a></p>",
+  "content": "<p>This post is pretty cool <a href=\"https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b\">RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b</a></p>",
   "tag": [
     {
       "type": "Link",
