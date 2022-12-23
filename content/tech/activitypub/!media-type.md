@@ -4,7 +4,9 @@ AS2-Core says
 
 AP says
 
-> MUST present the ActivityStreams object representation in response to `application/ld+json; profile="https://www.w3.org/ns/activitystreams"`, and SHOULD also present the ActivityStreams representation in response to `application/activity+json` as well. The client MUST specify an Accept header with the `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` media type in order to retrieve the activity.
+> POST requests (eg. to the inbox) MUST be made with a Content-Type of `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` and GET requests with an Accept header of `application/ld+json; profile="https://www.w3.org/ns/activitystreams"`. Servers SHOULD interpret a Content-Type or Accept header of `application/activity+json` as equivalent
+
+> MUST present the ActivityStreams object representation in response to `application/ld+json; profile="https://www.w3.org/ns/activitystreams"`, and SHOULD also present the ActivityStreams representation in response to `application/activity+json` as well. The client MUST specify an Accept header with the `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` media type in order to retrieve the activity
 
 basically as2 prefers activity+json while ap prefers ld+json with the activitystreams profile. ap is an extension to as2 so i guess ap takes precedence here...
 
