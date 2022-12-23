@@ -329,7 +329,13 @@ the idea is that you can **parse the @graph and then filter that list by @id to 
 
 that's pretty much it tbh
 
-as a side note, i recommend that ld-aware implementations compact their jsonld before it is delivered or dereferenced. explainer of the issue here: <https://github.com/w3c/activitypub/issues/359> but tldr non-ld-aware "json only" activitypub impls should have consistent shorthand property names to work with
+NOTE: activitystreams-core requires that for any serialized as2 document,
+
+- you MUST compact against the activitystreams @context
+- you MAY compact against additional contexts
+- you MUST NOT override the activitystreams context
+
+additionally if you encounter a document with `application/activity+json` mime-type then you MUST assume the activitystreams context if it is missing
 
 ## further reading
 
