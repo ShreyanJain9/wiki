@@ -16,3 +16,15 @@ taken literally and strictly, i interpret it like so:
 and on the response side:
 
 - return activity+json (regardless of request type)
+
+HOWEVER: in practice, you will probably need to be able to handle both types in both request+response
+
+impls that return activity+json:
+
+- mastodon
+- pleroma
+
+impls that return ld+json:
+
+- misskey
+- pixelfed
