@@ -13,11 +13,9 @@ p, h1, h2, h3, h4, h5, h6 {
 	overflow-wrap: break-word;
 }
 
-img, picture, video, canvas, svg,
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
-	max-width: 100%;
 }
 
 input, button, textarea, select {
