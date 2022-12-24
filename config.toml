@@ -1,6 +1,7 @@
 baseURL = 'https://wiki.trwnh.com/'
 languageCode = 'en-us'
 title = 'wiki.trwnh.com'
+enableGitInfo = true
 
 [markup.goldmark.renderer]
 unsafe = true
