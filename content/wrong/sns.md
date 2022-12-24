@@ -1,10 +1,10 @@
++++
++++
 # What's wrong with SNS
 
 Too many assumptions, too much collapsing and subsuming of things that should be separate.
 
 For example, an account, a user, and a profile are all treated as the same thing when they are not. A status is assumed to only ever be attached to one person. The URLs for all of this all depend on each other.
-
-No. Bad.
 
 Here's what to do instead:
 

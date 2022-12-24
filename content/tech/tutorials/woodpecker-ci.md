@@ -1,3 +1,6 @@
++++
+updated = "2022-12-15"
++++
 # set up woodpecker ci with gitea on arch linux
 
 assuming you already have a working gitea and are only one person, idk

@@ -1,5 +1,7 @@
-# Photography
-
++++
+title = "Photography"
+updated = "2019"
++++
 ## "Beginner" vs "expert" is a false dichotomy
 
 There is no camera for "beginners". It doesn't make any sense to recommend a camera based on skill level at all. Instead, getting into photography should go something like this:

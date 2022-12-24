@@ -1,3 +1,6 @@
++++
+updated = "2020"
++++
 # Open Web
 
 The open web is built on multiple technologies recommended by the W3C. This page is dedicated to taking notes about protocols and standards, and basic details of their implementation.
@@ -14,9 +17,9 @@ Microformats are used to define the Semantic Web, which aims to make machine-rea
 
 ## Dynamic content
 
-### Indieweb
+### IndieWeb
 
-The goal of the Indieweb project is to allow websites to be used as full-fledged substitutes for other services. The ideal indiewebsite would be able to self-host media content in multiple post types, serve as an authentication for logging into other services, and be used as a person's identity. Indieweb strategies include using your domain name as your identity, self-hosting your own data on that domain, syndicating copies of your content to silo services, and maintaining actually permanent permalinks. http://indieweb.org
+The goal of the IndieWeb project is to allow websites to be used as full-fledged substitutes for other services. The ideal indiewebsite would be able to self-host media content in multiple post types, serve as an authentication for logging into other services, and be used as a person's identity. Indieweb strategies include using your domain name as your identity, self-hosting your own data on that domain, syndicating copies of your content to silo services, and maintaining actually permanent permalinks. http://indieweb.org
 
 ### ActivityPub
 

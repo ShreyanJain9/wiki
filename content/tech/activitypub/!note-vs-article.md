@@ -1,3 +1,6 @@
++++
++++
+
 # Note vs Article
 
 Discussion: <https://socialhub.activitypub.rocks/t/resolving-the-note-vs-article-distinction/258>

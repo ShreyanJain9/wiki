@@ -1,13 +1,18 @@
++++
++++
+
 # Tags
 
 Tags are a property of Objects, stored in the `tag` array.
 
 From <https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag>
 
-- URI: https://www.w3.org/ns/activitystreams#tag
-- Notes: One or more "tags" that have been associated with an objects. A tag can be any kind of Object. The key difference between attachment and tag is that the former implies association by inclusion, while the latter implies associated by reference.
-- Domain: Object
-- Range: Object | Link
+**URI:** https://www.w3.org/ns/activitystreams#tag
+**Notes:** One or more "tags" that have been associated with an objects. A tag can be any kind of Object. The key difference between attachment and tag is that the former implies association by inclusion, while the latter implies associated by reference.
+**Domain:** Object
+**Range:** Object | Link
+
+{{<toc>}}
 
 ## Tagging Objects {#objects}
 
@@ -19,20 +24,20 @@ An example application would be the Instagram or Facebook "tag a person in this 
 
 ```json
 {
-  "id": "https://social.example/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
-  "type": "Image",
-  "url": "https://cdn.social.example/1578798509203652608.jpg",
-  "tag": [
-    "https://facebook.com/users/1"
-  ]
+	"id": "https://social.example/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
+	"type": "Image",
+	"url": "https://cdn.social.example/1578798509203652608.jpg",
+	"tag": [
+		"https://facebook.com/users/1"
+	]
 }
 ```
 
 ```json
 {
-  "id": "https://facebook.com/users/1",
-  "type": "Person",
-  "name": "Mark Zuckerberg"
+	"id": "https://facebook.com/users/1",
+	"type": "Person",
+	"name": "Mark Zuckerberg"
 }
 ```
 
@@ -56,21 +61,21 @@ Consider the following Article:
 
 ```json
 {
-  "@context": [
-    "https://www.w3.org/ns/activitystreams"
-  ],
+	"@context": [
+		"https://www.w3.org/ns/activitystreams"
+	],
 
-  "id": "https://social.trwnh.com/about",
-  "type": "Article",
-  "content": "<marquee><p>My homepage is <a href=\"https://trwnh.com\" rel=\"me\">trwnh.com</a></p></marquee>",
-  "tag": [
-    {
-      "type": "Link",
-      "name": "trwnh.com",
-      "href": "https://trwnh.com",
-      "rel": ["me"]
-    }
-  ]
+	"id": "https://social.trwnh.com/about",
+	"type": "Article",
+	"content": "<marquee><p>My homepage is <a href=\"https://trwnh.com\" rel=\"me\">trwnh.com</a></p></marquee>",
+	"tag": [
+		{
+			"type": "Link",
+			"name": "trwnh.com",
+			"href": "https://trwnh.com",
+			"rel": ["me"]
+		}
+	]
 }
 ```
 
@@ -84,22 +89,22 @@ In Misskey, a quote is a post that embeds a copy of another post below it. Using
 
 ```json
 {
-  "@context": [
-    "https://www.w3.org/ns/activitystreams"
-  ],
+	"@context": [
+		"https://www.w3.org/ns/activitystreams"
+	],
 
-  "id": "https://example.com/@alice/statuses/1578798374936652608",
-  "type": "Note",
-  "content": "<p>This post is pretty cool <a href=\"https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b\">RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b</a></p>",
-  "tag": [
-    {
-      "type": "Link",
-      "name": "RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
-      "href": "https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
-      "mediaType": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\"",
-      "rel": ["https://misskey-hub.net/ns#_misskey_quote"]
-    }
-  ]
+	"id": "https://example.com/@alice/statuses/1578798374936652608",
+	"type": "Note",
+	"content": "<p>This post is pretty cool <a href=\"https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b\">RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b</a></p>",
+	"tag": [
+		{
+			"type": "Link",
+			"name": "RE: https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
+			"href": "https://trwnh.com/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
+			"mediaType": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\"",
+			"rel": ["https://misskey-hub.net/ns#_misskey_quote"]
+		}
+	]
 }
 ```
 
@@ -116,21 +121,26 @@ General pseudocode may look something like this:
 ```py
 # Extract custom emojis from tag array
 tags = Object.tag
-CONTENT_TYPE = 'application/ld+json; profile="https://www.w3.org/ns/activitystreams"'
-ObjectLinks = [tag for tag in tags where tag.mediaType == CONTENT_TYPE]
+REQUEST_TYPE = 'application/ld+json; profile="https://www.w3.org/ns/activitystreams"'
+RESPONSE_TYPE = 'application/activity+json'
+ObjectLinks = [
+	tag
+	for tag in tags
+	where tag.mediaType in set(REQUEST_TYPE, RESPONSE_TYPE)
+]
 
 for Link in ObjectLinks:
-  
-  # The purpose of object links is to know that you can fetch an object with ActivityPub:
-  Object = http.GET(
-    Link.href,
-    headers={
-      'Accept': CONTENT_TYPE
-    }
-    )
-  
-  # You can now process the object link in some way,
-  # for example by creating deep links to be resolved within the local application
+
+	# The purpose of object links is to know that you can fetch an object with ActivityPub:
+	Object = http.GET(
+		Link.href,
+		headers={
+			'Accept': REQUEST_TYPE
+		}
+	)
+
+	# You can now process the object link in some way,
+	# for example by creating deep links to be resolved within the local application
 ```
 
 The text of FEP-e232 may be found at <https://codeberg.org/fediverse/fep/src/branch/main/feps/fep-e232.md>
@@ -147,20 +157,20 @@ Consider the following Note:
 
 ```json
 {
-  "@context": [
-    "https://www.w3.org/ns/activitystreams"
-  ],
+	"@context": [
+		"https://www.w3.org/ns/activitystreams"
+	],
 
-  "id": "https://example.com/@alice/hello-world",
-  "type": "Note",
-  "content": "<p>Hello @bob</p>",
-  "tag": [
-    {
-      "type": "Mention",
-      "name": "@bob",
-      "href": "https://example.com/@bob"
-    }
-  ]
+	"id": "https://example.com/@alice/hello-world",
+	"type": "Note",
+	"content": "<p>Hello @bob</p>",
+	"tag": [
+		{
+			"type": "Mention",
+			"name": "@bob",
+			"href": "https://example.com/@bob"
+		}
+	]
 }
 ```
 
@@ -176,7 +186,7 @@ A sub-type of Link that refers to a `#topic`, typically used for associating the
 
 #### Implementation details {#hashtag-implementation}
 
-<p class="callout warning">Not officially part of the ActivityPub context definition, but still assumed to be included in the ActivityStreams `as:` namespace by most implementations (for historical reasons). Implementations should manually define `as:Hashtag` in their JSON-LD `@context`.</p>
+<p class="callout hint warning">Not officially part of the ActivityPub context definition, but still assumed to be included in the ActivityStreams `as:` namespace by most implementations (for historical reasons). Implementations should manually define `as:Hashtag` in their JSON-LD `@context`.</p>
 
 The `href` typically links to a collection of all objects tagged with the same Hashtag.
 

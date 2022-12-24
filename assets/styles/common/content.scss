@@ -121,9 +121,6 @@
 		background: inherit;
 		padding: 0;
 	}
-	pre code > span {
-		padding-inline: 1em;
-	}
 	.highlight pre {
 		padding-block: 1em;
 	}
@@ -155,25 +152,22 @@
 		padding: 0.5em;
 	}
 	/* {{<hint>}} shortcode */
-	.hint {
+	.hint, .callout {
 		padding: 1em;
 		line-height: 2;
-	}
-	.hint,
-	.hint.info,
-	.hint.tip {
-		background: rgba(142, 226, 142, 0.2);
-		border-inline-start: 4px solid rgb(142, 226, 142);
-	}
-	
-	.hint.warning {
-		background: rgba(218, 226, 142, 0.2);
-		border-inline-start: 4px solid rgb(218, 226, 142);
-	}
-	
-	.hint.danger {
-		background: rgba(226, 142, 142, 0.2);
-		border-inline-start: 4px solid rgb(226, 142, 142);
+		&.info, &.tip
+		{
+			background: rgba(142, 226, 142, 0.2);
+			border-inline-start: 4px solid rgb(142, 226, 142);
+		}
+		&.warning {
+			background: rgba(218, 226, 142, 0.2);
+			border-inline-start: 4px solid rgb(218, 226, 142);
+		}
+		&.danger {
+			background: rgba(226, 142, 142, 0.2);
+			border-inline-start: 4px solid rgb(226, 142, 142);
+		}
 	}
 	/* hugo-specific citation footnote */
 	cite sup {

@@ -1,3 +1,5 @@
++++
++++
 # Actor
 
 an actor is just something that has `inbox` and `outbox`
@@ -77,3 +79,7 @@ seems to have a switch-case for Application Group Organization Person Service, b
 https://github.com/Chocobozzz/PeerTube/blob/develop/shared/models/activitypub/activitypub-actor.ts
 
 seems to have required fields `type` `id` `following` `followers` `inbox` `outbox` `preferredUsername` `url` `name` `endpoints.sharedInbox` `summary` `attributedTo` `publicKey` `publicKey.id` `publicKey.owner` `publicKey.publicKeyPem` [whew that's a lot!]
+
+other code spots:
+
+- https://github.com/Chocobozzz/PeerTube/blob/5070a9956052ed494077bb5e308eedd13e964799/server/helpers/custom-validators/activitypub/actor.ts#L24

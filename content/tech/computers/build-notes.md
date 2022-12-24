@@ -1,3 +1,6 @@
++++
+updated = "2018"
++++
 # Build Notes
 
 ## ASUS Z170I Gaming

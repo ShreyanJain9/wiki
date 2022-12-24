@@ -1,4 +1,7 @@
-# Radicalization
++++
+title = "Radicalization"
+updated = "2018"
++++
 
 ## The three factors of radicalization
 
@@ -10,7 +13,7 @@
 
 -- [<cite>"The psychology of how someone becomes radicalized"</cite> (Angela Fritz, <i>The Washington Post</i>, 2018 Nov 1)](https://www.washingtonpost.com/science/2018/11/01/psychology-how-someone-becomes-radicalized/?noredirect=on&utm_term=.bb1c34780f0b)
 
-# Deradicalization tactics
+## Deradicalization tactics
 
 >Weilnboeck says one lesson successful facilitators have learned is to avoid engaging in debates about politics or religious doctrine with those they are trying to deradicalize.
 >

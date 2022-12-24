@@ -1,3 +1,6 @@
++++
+updated = "2021"
++++
 ### Mailpile
 - selfhosted mail archive?
 - more of a webmail client?

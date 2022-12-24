@@ -1,4 +1,9 @@
-# What's wrong with address books
++++
+title = "What's wrong with address books"
+updated = "2019-08-20"
++++
+
+<https://mastodon.social/@trwnh/102648053339382526>
 
 Addresses are not owned. They are leased.
 

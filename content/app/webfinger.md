@@ -1,3 +1,6 @@
++++
++++
+
 this is really the interface that makes pure AP servers discoverable.
 
 problem: AP `id` can be literally anything

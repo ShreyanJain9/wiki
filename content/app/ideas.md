@@ -1,3 +1,6 @@
++++
++++
+
 # Ideas for extensions and differences from current implementations
 
 ## Webfinger Content-Type of activitystreams profile

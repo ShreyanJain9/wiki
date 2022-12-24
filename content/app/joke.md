@@ -1,3 +1,6 @@
++++
++++
+
 # Joke ideas for federation that are still actually kinda valid but funny
 
 ## Federated mutes

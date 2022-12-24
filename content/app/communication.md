@@ -1,3 +1,6 @@
++++
++++
+
 # Communication paradigms
 
 ## qualitative analysis

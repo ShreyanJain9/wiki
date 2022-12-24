@@ -1,4 +1,8 @@
-# Fascism
++++
+title = "Fascism"
+updated = "2019"
++++
+
 
 ## Definition
 **Fascism** is a political ideology defined by the following:

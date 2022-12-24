@@ -1,3 +1,6 @@
++++
++++
+
 AS2-Core says
 
 > An Activity Streams Document is a JSON document whose root value is an Activity Streams Object of any type [...] and whose MIME media type is `application/activity+json` [...] Implementations SHOULD consider the `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` media type as being equivalent to `application/activity+json`.

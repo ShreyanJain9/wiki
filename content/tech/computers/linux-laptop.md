@@ -1,3 +1,6 @@
++++
+updated = "2019"
++++
 # Linux laptop
 i'm using an asus zenbook infinity (ux301la-dh71t) for this. main challenges of laptops are being limited to 1 monitor, needing to set up hotkeys, and other such stuff.
 
