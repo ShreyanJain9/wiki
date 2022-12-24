@@ -70,9 +70,14 @@
 		color: var(--ui-text-muted);
 	}
 	/* lists */
-	ul {list-style: disc; margin-block: 1em;}
+	ul, ol {
+		padding-inline-start: 0;
+		margin-block: 1em;
+		position: relative;
+	}
+	ul {list-style: disc;}
+	ol {list-style: decimal;}
 	li {margin-block-end: 1em; line-height: 1.4; margin-inline-start: 1em;}
-	ol {list-style: decimal; margin-block: 1em;}
 	dl {margin-block: 1em; line-height: 1.4;}
 	dt {font-weight: 700;}
 	dd {margin-inline-start: 1em;}

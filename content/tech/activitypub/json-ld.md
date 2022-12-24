@@ -339,17 +339,28 @@ additionally if you encounter a document with `application/activity+json` mime-t
 
 ## further reading
 
-- [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/)
-	- [3.2 IRIs](https://www.w3.org/TR/json-ld11/#iris)
-		- > An IRI is defined in [RFC3987] as containing a scheme along with path and optional query and fragment segments. A relative IRI reference is an IRI that is relative to some other IRI. In JSON-LD, with exceptions that are as described below, all relative IRI references are resolved relative to the base IRI.
-		- > While it is a good practice for resource identifiers to be dereferenceable, sometimes this is not practical. In particular, note the [URN] scheme for Uniform Resource Names, such as UUID. An example UUID is urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6.
-	- [3.1 The Context](https://www.w3.org/TR/json-ld11/#the-context)
-		- > Simply speaking, a <mark>context is used to map terms to IRIs</mark>. Terms are case sensitive and most valid strings that are not reserved JSON-LD keywords can be used as a term. Exceptions are the empty string "" and strings that have the form of a keyword (i.e., starting with "@"
-		- > Contexts can either be directly embedded into the document (an embedded context) or be referenced using a URL. Assuming the context document in the previous example can be retrieved at https://json-ld.org/contexts/person.jsonld, it can be referenced by adding a single line and <mark>allows a JSON-LD document to be expressed much more concisely</mark>
-	- [5.1 Expanded Document Form](https://www.w3.org/TR/json-ld11/#expanded-document-form)
-		- > Expansion is the process of taking a JSON-LD document and applying a context such that all IRIs, types, and values are expanded so that the <mark>@context is no longer necessary</mark>.
-	- [5.2 Compacted Document Form](https://www.w3.org/TR/json-ld11/#compacted-document-form)
-		- > Compaction is the process of applying a developer-supplied context to shorten IRIs to terms or compact IRIs and JSON-LD values expressed in expanded form to simple values such as strings or numbers. Often this makes it simpler to work with document as the <mark>data is expressed in application-specific terms</mark>. Compacted documents are also typically easier to read for humans.
-		- > The purpose of compaction is to apply the term definitions, vocabulary mapping, default language, and base IRI to an existing JSON-LD document to cause it to be represented in a form that is tailored to the use of the JSON-LD document <mark>directly as JSON</mark>.
-	- [5.3 Flattened Document Form](https://www.w3.org/TR/json-ld11/#flattened-document-form)
-		- > Flattening collects all properties of a node in a single map and <mark>labels all blank nodes</mark> with blank node identifiers. This ensures a <mark>shape of the data</mark> and consequently may drastically <mark>simplify the code required to process JSON-LD</mark> in certain applications.
+[JSON-LD 1.1 -- § 3.2 IRIs](https://www.w3.org/TR/json-ld11/#iris)
+
+> An IRI is defined in [RFC3987] as containing a scheme along with path and optional query and fragment segments. A relative IRI reference is an IRI that is relative to some other IRI. In JSON-LD, with exceptions that are as described below, all relative IRI references are resolved relative to the base IRI.
+
+> While it is a good practice for resource identifiers to be dereferenceable, sometimes this is not practical. In particular, note the [URN] scheme for Uniform Resource Names, such as UUID. An example UUID is urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6.
+
+[JSON-LD 1.1 -- § 3.1 The Context](https://www.w3.org/TR/json-ld11/#the-context)
+
+> Simply speaking, a <mark>context is used to map terms to IRIs</mark>. Terms are case sensitive and most valid strings that are not reserved JSON-LD keywords can be used as a term. Exceptions are the empty string "" and strings that have the form of a keyword (i.e., starting with "@"
+
+> Contexts can either be directly embedded into the document (an embedded context) or be referenced using a URL. Assuming the context document in the previous example can be retrieved at https://json-ld.org/contexts/person.jsonld, it can be referenced by adding a single line and <mark>allows a JSON-LD document to be expressed much more concisely</mark>
+
+[JSON-LD 1.1 -- § 5.1 Expanded Document Form](https://www.w3.org/TR/json-ld11/#expanded-document-form)
+
+> Expansion is the process of taking a JSON-LD document and applying a context such that all IRIs, types, and values are expanded so that the <mark>@context is no longer necessary</mark>.
+
+[JSON-LD 1.1 -- § 5.2 Compacted Document Form](https://www.w3.org/TR/json-ld11/#compacted-document-form)
+
+> Compaction is the process of applying a developer-supplied context to shorten IRIs to terms or compact IRIs and JSON-LD values expressed in expanded form to simple values such as strings or numbers. Often this makes it simpler to work with document as the <mark>data is expressed in application-specific terms</mark>. Compacted documents are also typically easier to read for humans.
+
+> The purpose of compaction is to apply the term definitions, vocabulary mapping, default language, and base IRI to an existing JSON-LD document to cause it to be represented in a form that is tailored to the use of the JSON-LD document <mark>directly as JSON</mark>.
+
+[JSON-LD 1.1 -- § 5.3 Flattened Document Form](https://www.w3.org/TR/json-ld11/#flattened-document-form)
+
+> Flattening collects all properties of a node in a single map and <mark>labels all blank nodes</mark> with blank node identifiers. This ensures a <mark>shape of the data</mark> and consequently may drastically <mark>simplify the code required to process JSON-LD</mark> in certain applications.

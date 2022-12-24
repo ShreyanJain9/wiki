@@ -1,6 +1,7 @@
 .subsections,
 .subpages {
 	list-style: disc;
+	padding: 0;
 	margin-block-start: 1em;
 	margin-block-end: 2em;
 	li {
@@ -15,6 +16,7 @@
 	font-size: 2em;
 	border-block-end: 1px solid var(--ui-text-muted);
 	padding-block-end: 0.5em;
+	margin-block-start: 0;
 	margin-block-end: 1em;
 }
 .subsections-title,

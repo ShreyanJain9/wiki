@@ -66,9 +66,13 @@ article[autonumbering] {
 
 	#TableOfContents :is(ol, ul) {
 		counter-reset: item;
+		margin-inline-start: 0;
 	}
 	#TableOfContents li:before {
-		content: counters(item, ".") ". ";
+		content: counters(item, ".") " ";
 		counter-increment: item;
+		font-family: monospace;
+		font-weight: bold;
+		margin-inline-end: 0.5em;
 	}
 }
