@@ -35,8 +35,15 @@ Containers are an immediate child <div>, purely for constraining width.
 	padding: 0 1em; /* and we apply a horizontal padding only to containers */
 }
 
-/* Ensure consistent colors for text selection */
+/* Ensure consistent colors for text selection and element focus */
 ::selection {
 	background: var(--primary-accent);
 	color: var(--primary-accent-text);
+}
+
+*:focus {
+	border-radius: 2px;
+	text-decoration: none;
+	outline: 1px dashed var(--ui-text);
+	outline-offset: 4px;
 }

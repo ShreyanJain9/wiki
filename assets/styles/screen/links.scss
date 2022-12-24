@@ -10,11 +10,8 @@ a:visited {
 	color: var(--link-visited);
 }
 
-*:focus {
-	border-radius: 2px;
-	text-decoration: none;
-	outline: 1px dashed var(--ui-text);
-	outline-offset: 4px;
+a:focus {
+	
 }
 
 a:hover {
