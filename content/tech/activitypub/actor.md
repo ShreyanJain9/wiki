@@ -32,7 +32,7 @@ other references in code:
 
 the isActor check only validates if one of the five types
 
-the interface requires `inbox`, `outbox` so that's fine
+the interface requires `inbox`, `outbox` so that's fine, it should just drop the `type` hardcoded check
 
 https://github.com/misskey-dev/misskey/blob/22ccb0fa716a84560c8599781647baaaeb8e80bd/packages/backend/src/core/activitypub/type.ts#L150-L176
 
@@ -82,4 +82,20 @@ seems to have required fields `type` `id` `following` `followers` `inbox` `outbo
 
 other code spots:
 
-- https://github.com/Chocobozzz/PeerTube/blob/5070a9956052ed494077bb5e308eedd13e964799/server/helpers/custom-validators/activitypub/actor.ts#L24
+https://github.com/Chocobozzz/PeerTube/blob/5070a9956052ed494077bb5e308eedd13e964799/server/helpers/custom-validators/activitypub/actor.ts
+
+sanitizeAndCheckActorObject() does the following:
+
+- actor exists
+- id is valid AP url
+- inbox is valid AP url
+- preferredUsername is valid
+- url is valid AP url
+- publicKey is valid public key object
+- endpoints is valid endpoints object
+- either no outbox, or outbox is valid AP url
+- either no following, or following is valid AP url
+- either no followers, or followers is valid AP url
+- set valid attributedTo
+- set valid description [summary???]
+- either type is not Group, or [if type is Group] then attributedTo has at least 1 item
