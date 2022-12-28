@@ -9,7 +9,7 @@ an Activity is just an object that has an `actor`
 
 ## what does it mean to be an Activity
 
-for C2S: do not wrap it in a Create when it gets POSTed to outbox
+for C2S: if it has `actor` then do not wrap it in a Create when it gets POSTed to outbox
 
 ## implementations
 
