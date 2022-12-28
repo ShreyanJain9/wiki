@@ -208,3 +208,170 @@ supported activity types <https://github.com/mastodon/mastodon/tree/main/app/lib
 			- (resolve `object` as status)
 			- (stop if no status)
 			- (call ProcessStatusUpdateService)
+
+### pixelfed
+
+<https://github.com/pixelfed/pixelfed/blob/dev/app/Util/ActivityPub/Inbox.php>
+
+(seems to require inlining in a lot of places? not 100% sure but that's what it looks like to me)
+
+- Add
+	- (must be inlined?)
+	- Add Story (not final)
+- Create
+	- (requires `to` for some reason, so `cc` only will break)
+	- Create Question
+	- (a single `to` item will create a DM if no `cc`)
+	- Create Note.inReplyTo
+	- Create Note.attachment
+- Follow
+	- Follow `object<Profile>`
+- Announce
+	- Announce `object<Status>`
+- Accept
+	- Accept Follow (anything else will return immediately)
+- Delete
+	- Delete `object<Profile>` (if `object` == `actor` and is valid string uri)
+	- Delete [Person, Tombstone, Story] (???)
+		- Delete Person
+		- Delete Tombstone (???)
+		- Delete Story (not final)
+- Like
+	- Like `object<Status>`
+- Reject
+	- (does nothing)
+- Undo
+	- (must be inlined)
+	- Undo Accept
+		- (does nothing)
+	- Undo Announce
+	- Undo Block
+		- (does nothing)
+	- Undo Follow
+	- Undo Like
+- View
+	- View Story (not final)
+		- (also seems to get story id by whatever is after the last slash?)
+- Story:Reaction (not final; undocumented extension)
+	- (`id` and `actor` must be valid urls)
+	- (`inReplyTo` and `to` must be local)
+	- (`object` must not resolve to Status)
+	- (seems to get story id by whatever is after the last slash?)
+- Story:Reply (not final; undocumented extension)
+	- (`id` and `actor` must be valid urls)
+	- (`inReplyTo` and `to` must be local)
+	- (`object` must not resolve to Status)
+	- (seems to get story id by whatever is after the last slash?)
+- Update (commented out)
+
+### misskey
+
+<https://github.com/misskey-dev/misskey/blob/develop/packages/backend/src/core/activitypub/type.ts>
+
+- Create
+- Delete
+- Update
+- Read
+- Undo
+- Follow
+- Accept
+- Reject
+- Add
+- Remove
+- Like | EmojiReaction | EmojiReact
+- Announce
+- Block
+- Flag
+
+<https://github.com/misskey-dev/misskey/blob/develop/packages/backend/src/core/activitypub/ApInboxService.ts>
+
+### pleroma
+
+ObjectValidator <https://git.pleroma.social/pleroma/pleroma/-/blob/develop/lib/pleroma/web/activity_pub/object_validator.ex>
+
+validate()
+
+- Block
+- Undo
+- Delete
+- Create ChatMessage
+- Create [Question Answer Audio Video Event Article Note Page]
+- [Event Question Audio Video Article Note Page]
+	- Event
+	- Question
+	- Audio
+	- Video
+	- Article
+	- Note
+	- Page
+- Update [Question Answer Audio Video Event Article Note Page]
+- [Accept Reject Follow Update Like EmojiReact Announce]
+	- Accept
+	- Reject
+	- Follow
+	- Update
+	- Like
+	- EmojiReact
+	- Announce
+	- ChatMessage
+	- Answer
+- [Add Remove]
+
+SideEffects <https://git.pleroma.social/pleroma/pleroma/-/blob/develop/lib/pleroma/web/activity_pub/side_effects.ex>
+
+handle()
+
+- Accept
+	- Accept Follow
+- Reject
+	- Reject Follow
+- Follow
+- Block
+- Update
+	- Update `object<User>`
+	- Update `object<Object>`
+- Like
+- Create
+	- Create ChatMessage
+	- Create Question
+	- Create Answer
+	- Create [Audio Video Event Article Note Page]
+- Announce
+- Undo
+	- Undo Like
+	- Undo EmojiReact
+	- Undo Announce
+	- Undo Block
+- EmojiReact
+- Delete
+- Add
+- Remove
+
+Transmogrifier <https://git.pleroma.social/pleroma/pleroma/-/blob/develop/lib/pleroma/web/activity_pub/transmogrifier.ex>
+
+handle_incoming()
+
+- Flag
+- Listen Audio
+- Like._misskey_reaction
+- Create [Question Answer ChatMessage Audio Video Event Article Note Page]
+- [Like EmojiReact Announce Add Remove]
+	- (fetch `actor` and `object`)
+- [Update Block Follow Accept Reject]
+	- (fetch `actor`)
+- Delete
+	- (check if Create exists)
+- Undo Follow
+- Undo
+	- (get `object` by `id` and expand it)
+- Move
+
+prepare_outgoing()
+
+- [Create Listen]
+- Update `object<updatable>`
+	- [Note Question Audio Video Event Article Page]
+- Announce
+- Accept -> Accept Follow
+- Reject -> Reject Follow
+- Answer -> Note
