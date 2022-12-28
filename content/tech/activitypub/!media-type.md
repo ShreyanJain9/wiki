@@ -30,6 +30,22 @@ and on the response side:
 
 HOWEVER: in practice, you will probably need to be able to handle both types in both request+response
 
+impls that GET with activity+json:
+
+- ...
+
+impls that GET with ld+json:
+
+- ...
+
+impls that POST with activity+json:
+
+- mastodon
+
+impls that POST with ld+json:
+
+- pixelfed
+
 impls that return activity+json:
 
 - mastodon
@@ -40,12 +56,7 @@ impls that return ld+json:
 - misskey
 - pixelfed
 
-impls that POST with activity+json:
-
-- mastodon
-- ...
-
-## gotcha: multiple types
+## QUIRK: multiple types
 
 ALSO NOTE: you may encounter multiple accept/content-type values. mastodon for example makes GET requests with `Accept: application/activity+json, application/ld+json` (in violation of the activitypub spec) or `Accept: application/activity+json, application/ld+json; profile="https://www.w3.org/ns/activitystreams", text/html;q=0.1` (also in violation of activitypub). these are still valid by RFC 9110 "HTTP Semantics" `Accept:` header parsing rules. note that multiple types are separated by a comma (`,`) but you must not parse them in order; *you parse them by most specific type first*.
 
