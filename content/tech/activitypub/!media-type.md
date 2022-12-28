@@ -68,3 +68,4 @@ ALSO NOTE: you may encounter multiple accept/content-type values. mastodon for e
 > 3. text/*
 > 4. \*/\*
 
+fwiw mastodon doesn't seem interested in changing this so you will have to Deal With It if you care about mastodon compat <https://github.com/mastodon/mastodon/pull/22722>
