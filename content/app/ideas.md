@@ -3,6 +3,12 @@
 
 # Ideas for extensions and differences from current implementations
 
+## max followers
+
+https://github.com/mastodon/mastodon/issues/20089
+
+max followers? mastodon has a MAX_FOLLOWS and MAX_FOLLOW_RATIO so why not MAX_FOLLOWERS
+
 ## Webfinger Content-Type of activitystreams profile
 
 i wonder if setting a Content-Type of `"application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\""` instead of `"application/activity+json"` would break anything
