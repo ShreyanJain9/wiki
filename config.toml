@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'wiki.trwnh.com'
 enableGitInfo = true
 
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 6
+
 [markup.goldmark.renderer]
 unsafe = true
 
