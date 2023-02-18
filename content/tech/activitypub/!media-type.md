@@ -1,7 +1,8 @@
 +++
-title = "interpretation of request/response media types in as2/ap"
 autonumbering = true
 +++
+
+# interpretation of request/response media types in as2/ap
 
 AS2-Core says
 
