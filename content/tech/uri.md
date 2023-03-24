@@ -87,7 +87,7 @@ DNS authority means you can assign names underneath a given domain name... this 
 
 URN authority means you can assign names underneath a given URN namespace... this authority derives from some agreement with standards bodies.
 
-therefore, it can be said that the real difference between DNS and URN is that the former grants authority based on technical registration, while the latter grants authority based on social registration. in other words a URN can be used even without the internet. consequently, **URNs can be handed out freely and in a decentralized manner**.
+therefore, it can be said that the real difference between DNS and URN is that the former grants authority based on technical registration, while the latter grants authority based on social registration. in other words a URN can be used even without the internet. consequently, **URNs can be handed out freely and in a decentralized manner**, and the problem you have to solve is consensus between authorities.
 
 ## see also
 

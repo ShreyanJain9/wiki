@@ -29,11 +29,17 @@ if you receive an Accept/Reject Follow, check ONLY for the following:
 
 if object is inlined, you don't need to check that object.id is local. the above is enough information, PROVIDED THAT you have a local pending follow request. if you do not have a pending follow, then DO NOT process an incoming Accept Follow. however, you may receive a Reject Follow at any time, indicating that you should destroy that follow relationship. note that you may also receive an Undo Accept Follow by some implementations. this is discouraged but should be handled as well
 
+<https://github.com/misskey-dev/misskey/issues/9250>
+
 ## DO NOT CHECK TYPES DURING VALIDATION
 
 an Actor has an `inbox` and `outbox`. that's it.
 
 an Activity has an `actor`. that's it.
+
+a Collection has `items` or `orderedItems`. that's it.
+
+etc
 
 ## DON'T PANIC WHEN YOU SEE A TYPE YOU DON'T UNDERSTAND
 
@@ -57,3 +63,23 @@ let document = ...
 tags = document.tag.filter(tag => tag.type in UNDERSTOOD_TAG_TYPES)
 // do whatever you need to now
 ```
+
+## DO NOT CONFUSE ITEMS AND ORDEREDITEMS
+
+`items` indicates that this is a Collection
+
+however, `orderedItems` is valid on both Collection and OrderedCollection! it is defined like this in the as2 context:
+
+```json
+"orderedItems": {
+	"@id": "as:items",
+	"@type": "@id",
+	"@container": "@list"
+}
+```
+
+so it is basically just an alias for `items` where it MUST be an array, and the array's order matters. (if it were `@container: set`, then it MUST be an array, but the array's order does not matter.)
+
+### tangent: a Collection may be ordered without being an OrderedCollection
+
+OrderedCollection is defined as strictly reverse chronological by ActivityPub. however, other orderings are valid on regular Collections. the use of the `orderedItems` term allows plain-JSON implementations to do exactly this.

@@ -3,7 +3,6 @@ toc = true
 autonumbering = true
 +++
 
-
 ## (closeable)
 
 - #1062 remote follow dialog should make it easier to recommend or remember your instance [was fixed by cookies but not closed. later the whole "remote follow" dialog was removed in 4.0]
@@ -43,6 +42,13 @@ autonumbering = true
 - #5784 [someone confused that local timeline isn't geographically local]
 - #5788 remember timeline position [we have timeline markers now]
 - #5915 rename lists and support filters on lists [done now]
+- #6041 add self to own list [done now]
+- #6069 notification for when someone signs up on bridge.joinmastodon.org [which is long dead]
+- #6079 replying to post mentioning multiple users does not focus on compose box [yes it does now i tested it]
+- #6087 auto-CW long posts or auto-CW certain users [first half done, second half is dupe of #6078 after filter revamp]
+- #6137 deleted accounts appear in searches [not anymore? can't replicate]
+- #6220 insert spaces between text and custom emoji shortcode when selecting custom emoji [tested, it does this now]
+- #6239 captioning images resets focus to compose box [no longer valid; images are captioned in a separate modal now]
 
 ### (duplicates)
 
@@ -51,6 +57,8 @@ autonumbering = true
 - #4098 duplicate of #609 ("private profiles" vs "private-ish profiles")
 - #5491 duplicate of #1306 ("timeline jumps due to incoming posts")
 - #5710 duplicate of #4305 ("make getting started movable" vs "make context column movable")
+- #6093 duplicate of #6078 (filter out by username includes filtering yourself out)
+- #6288 duplicate of #34 (backfill statuses from remote accounts)
 
 ### (maybe closeable?)
 
@@ -76,6 +84,12 @@ autonumbering = true
 - #5612 Support `longdesc` on images [longdesc is deprecated and obsolete apparently]
 - #5737 store metadata about relationship changes (when/why) [we have profile notes now so that probably works]
 - #5896 allow mods to force hide all media from an account [is this the same as "force-mark as sensitive" or is it more like "reject media"?]
+- #6033 postgres 10 has a long-running query on public timelines? [is this still relevant]
+- #6064 remote suspensions do not always reach you for followers? [has this been fixed now? issue is from 2017]
+- #6073 hashtag cloud on landing/about page [is this addressed by trending tags on explore page?]
+- #6135 404 on follow attempt [old issue, not replicated]
+- #6250 don't send email notifications if a notification is seen in an active session [isn't this done by default now? there's a setting to "always send"]
+- #6321 "quiet hours" mode where notifications are not shown [this is done at the OS level]
 
 ---
 
@@ -120,6 +134,14 @@ autonumbering = true
 - #5658 remote gif avatar gets corrupted on docker instances
 - #5707 wrong localization for zh-TW on relative short timestamp
 - #5960 status creation fails on id collision in transaction
+- #6070 discovering a post that wasn't federated can cause the counter to +1 mistakenly
+- #6083 a certain video got stuck on the first frame
+- #6113 favorite/boost counts take a while to update/refresh
+- #6139 old accounts deleted manually should be cleaned up [do we have this as a rake task or tootctl cleanup command?]
+- #6156 hide boosts from someone you follow, and you will not receive boost notifications from them
+- #6208 if the timeline is full of filtered posts, it doesn't load more
+- #6329 atom feeds have a CORS issue
+- #6338 zwsp is wrongly included in URL parser but correctly removed by hashtag parser
 
 ### (feature requests)
 
@@ -160,6 +182,9 @@ autonumbering = true
   - #5691 allow users to select their language on the landing page while logged out
 - #4983 [original issue was about making posts unboostable, but was misunderstood to be about filtering out notifications for when a certain post is boosted]
 - #5787 separate preference for "autoplay media" and "animate emoji"
+- #6094 embed profiles or timelines
+- #6122 tell the user when they are impacted by instance domain blocks
+- #6332 show which local users follow a remote user in the moderation UI
 
 #### (more niche)
 
@@ -171,6 +196,10 @@ autonumbering = true
 - #5675 choose the default tab for your profile
 - #5714 maybe your posts should be cached offline in the web app's local storage so that if your instance goes offline you have a backup
 - #5867 Support 360 panaroma photos
+- #6067 notify when a hashtag is used
+- #6084 user analytics
+- #6090 RSS feed for all interactions on a post?
+- #6350 choose the date format localization for timestamps
 
 ### (meta)
 
@@ -186,6 +215,7 @@ autonumbering = true
 - #5781 refetch avatars (and other media?) after remove instance domain block with "reject media" checked
 - #5797 prevent replying to someone without mentioning them
 - #5883 allow pagination from oldest to newest [or discover the oldest post id somehow]
+- #6136 API request limit should be higher -- 100 statuses?
 
 #### (vague or inactionable)
 
@@ -200,7 +230,8 @@ autonumbering = true
 - #5553 urls should not be assumed 23 characters
 - #5686 two stages of following -- unapproved and approved. send public posts to unapproved followers [could be handled with audiences instead?]
 - #5723 granular post privacy (control whether post goes to public timelines, is available unauthenticated, local-only, etc)
-- #5774 ability to change your instance domain (LOCAL_DOMAIN) 
+- #5774 ability to change your instance domain (LOCAL_DOMAIN)
+- #6192 scss stylesheets should have more color variables
 
 ---
 
@@ -225,6 +256,13 @@ autonumbering = true
 - #5619 Suport Alibaba Object Storage as an alternative to S3
 - #5729 Replace Paperclip with Shrine
 - #5972 Rename "always mark media as sensitive" to "Mark media as sensitive by default" [TODO: Low hanging fruit]
+- #6007 button to generate archive exports on behalf of the user, then email them with a link to that archive
+- #6031 Full-width japanese period gets included as part of path query in URLs (after the slash). this can break links
+- #6351 URL renderer / linkifier adds empty span.invisible to the end of many links
+
+#### specific to search
+
+- #6287 search for multiple hashtags
 
 #### specific to signups and new accounts
 
@@ -238,12 +276,14 @@ autonumbering = true
 - #4640 activitypub property to signal when you opt out of search indexing (similar to robots.txt or robots meta tag in html)
 - #4964 use a versioned json-ld @context [currently mastodon just uses the unversioned activitystreams context, but i'm not entirely sure what issues this may cause if any and why]
 - #5500 human-readable errors on trying to post to activitypub inbox endpoint
+- #6262 converted statuses should append Hashtags to the end of the status_content maybe?
 
 #### REST API
 
 - #2048 support Android Intent URIs when registering a client app [currently failing due to use of `#` in uri; workaround is to register custom scheme in android?]
 - #5273 API response should include Relationship on each Notification, so that you can tell when a notification came from a follower/following/mutual [arguably you could embed the Relationship on the Account but that might be expensive]
 - #5492 API for a client app to update its own registered information (such as `redirect_uris`) using an app token generated from the stored `client_id`+`client_secret`
+- #6040 errors should have a non-localized string key to identify which specific error occurred (can be matched exactly)
 
 #### Streaming API
 
@@ -277,6 +317,13 @@ autonumbering = true
 
 ---
 
+### Filters
+
+- #18955 Revamp filters to cover more use cases
+  - #6078 Filters ignore username
+
+---
+
 ### Lists
 
 - #5938 backfill lists when adding new accounts to them
@@ -301,6 +348,10 @@ autonumbering = true
 - #1471 show account preview on hover
 - #1955 hash acct/url and pick a distinct color to allow more easily identifying when an account is different or is a homograph and possibly impersonation
 - #4647 when you hide media that isn't marked nsfw, it should stay hidden persistently (currently it is reshown on refresh)
+- #6028 poor contrast on the CW and privacy toggles in the compose form
+- #6034 clarify the difference between "desktop notifications" and "push notifications" toggles
+- #6035 notification settings are messy and poorly laid out
+- #6210 show when a boost was made, not just the original post timestamp
 - #7860 show confirmation dialog before more things
   - #3702 show confirmation dialog before posting
 
@@ -338,6 +389,7 @@ autonumbering = true
 - #921 `rich` OEmbed (e.g. for soundcloud)
 - #1255 allow wider aspect ratios instead of zoom-cropping thumbnail [auto height instead of `object-fit: cover`?]
 - #2034 when a modal is open, pause all animations in the background
+- #6254 "reduce motion" should disable side-scrolling animation for preview of multiple images
 
 ##### specific to authoring media
 
@@ -362,6 +414,8 @@ autonumbering = true
 - #3875 "edit profile" link should be easier to tap on mobile [TODO: low hanging fruit]
 - #4508 better focus contrast / visibility for status action buttons [currently, there is a slight transparent background on focus but no prominent outline like other focused elements] [TODO: low hanging fruit] [side note: the video player has even worse contrast on focus, i legit could not tell it was focused]
 - #4510 when you focus on a post and expand it, the focus should shift to the detailed status view instead of staying in the column
+- #6152 larger click/touch target for adding account to list
+- #6185 error toast notifications should show up closer to the source of the error, not in the lower left corner
 
 ##### performance
 
@@ -401,6 +455,25 @@ autonumbering = true
 - #3872 combine Getting Started + Compose into one column, since they're both always open?
 - #4399 CW toggle and sensitive media toggle should be linked such that expanding a post expands the media with it, and collapsing a post should rehide the media
   - #4689 CW and sensitive media should not be linked at all
+  - #6141 show a media indicator in the CW "show more" toggle
 - #5727 UI mockup for two-column layout on tablets
 - #5736 more layout adjustments. variable column width, variable font size, variable media thumbnail size
 - #5958 quickly switch between lists in a pinned column, or allow pinning the main "Lists" list
+- #6267 use typescript
+
+---
+
+<script>
+
+let tag = /\#(\d+)/g;
+let link = '<a href="https://github.com/mastodon/mastodon/issues/$1">#$1</a>';
+
+document
+.querySelectorAll('li')
+.forEach(
+  (node) => {
+    node.innerHTML = node.innerHTML.replace(tag,link);
+  }
+);
+
+</script>

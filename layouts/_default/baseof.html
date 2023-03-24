@@ -28,6 +28,7 @@
 	<body>
 		{{ partial "site-header.html" . }}
 		{{ partial "breadcrumbs.html" . }}
+		<div class="container">{{ partial "lastmod.html" . }}</div>
 		{{ block "main" . }}
 		{{ end }}
 		{{ partial "site-footer.html" . }}
