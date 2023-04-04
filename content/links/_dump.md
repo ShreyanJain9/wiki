@@ -18,8 +18,6 @@ mast logo <https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/d6/be/9c/d6be9c
 
 openxri project <https://openxri.sourceforge.net/>
 
-+18665923734 -- birmingham al office of the us social security administration (also handles disability)
-
 <https://codeberg.org/weex/the-fediverse/issues/7>
 
 indiekit, a nodejs server that helps static websites do indieweb stuff (is it like a cms?) <https://getindiekit.com/introduction>

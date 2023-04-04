@@ -11,6 +11,8 @@
 
 ## irc
 
+- relay model. you send everything to a central server and it relays it to everyone connected
+
 ## xmpp
 
 ## activitypub

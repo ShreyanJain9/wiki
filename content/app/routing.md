@@ -24,4 +24,6 @@ irc, xmpp groups, i think it makes sense to add webrtc too. basically jitsi meet
 ## reader.trwnh.com
 rss / atom / activitypub?
 
-##
+## accounts.trwnh.com or id.trwnh.com
+
+identity provider?
