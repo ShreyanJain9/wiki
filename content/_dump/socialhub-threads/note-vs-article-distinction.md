@@ -156,4 +156,4 @@ the thing is, though, that it’s really seeming like if we use “syndication�
 
 ## current thoughts
 
-i wrote a whole thing abt this [here]({{< relref "!note-vs-article" >}})
+i wrote a whole thing abt this [here]({{< relref "note-vs-article" >}})
