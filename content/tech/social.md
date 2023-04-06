@@ -48,10 +48,10 @@ updated = "2021"
 
 - assuming public by default. no. let the user determine what they want to *opt in* to publishing, not what they want to *opt out* of having visible. by default, nothing should be known about the user.
 
->Copying and pasting made people look at what they shared, and think about it, at least for a moment. When the retweet button debuted, that friction diminished. Impulse superseded the at-least-minimal degree of thoughtfulness once baked into sharing. Before the retweet, Twitter was largely a convivial place. After, all hell broke loose — and spread.
+> Copying and pasting made people look at what they shared, and think about it, at least for a moment. When the retweet button debuted, that friction diminished. Impulse superseded the at-least-minimal degree of thoughtfulness once baked into sharing. Before the retweet, Twitter was largely a convivial place. After, all hell broke loose — and spread.
 
 --[The Man Who Built The Retweet: “We Handed A Loaded Weapon To 4-Year-Olds”](https://www.buzzfeednews.com/article/alexkantrowitz/how-the-retweet-ruined-the-internet)
 
->[S]ocial media has been overtaken by metrics, which are driven in large part by the vicious cycle of advertisers wanting to know which influencers are worth paying; and by toxic fan battles to make your favorite social media accounts gain followers and likes, and to downrank your favorites' rivals. 
+> [S]ocial media has been overtaken by metrics, which are driven in large part by the vicious cycle of advertisers wanting to know which influencers are worth paying; and by toxic fan battles to make your favorite social media accounts gain followers and likes, and to downrank your favorites' rivals. 
 
 --[Demetrification: improving social media by removing public like/follower/repost counts](https://boingboing.net/2019/09/12/flickrs-glory-days.html)
