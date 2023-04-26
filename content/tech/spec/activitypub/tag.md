@@ -14,37 +14,6 @@ From <https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag>
 
 {{<toc>}}
 
-## Tagging Objects {#objects}
-
-<p class="callout info">Not currently used in the fediverse.</p>
-
-In theory, you could tag an Object to show that it is somehow referentially associated with the current Object.
-
-An example application would be the Instagram or Facebook "tag a person in this image" feature, which might be implemented something like this:
-
-```json
-{
-	"id": "https://social.example/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
-	"type": "Image",
-	"url": "https://cdn.social.example/1578798509203652608.jpg",
-	"tag": [
-		"https://facebook.com/users/1"
-	]
-}
-```
-
-```json
-{
-	"id": "https://facebook.com/users/1",
-	"type": "Person",
-	"name": "Mark Zuckerberg"
-}
-```
-
-However, it might be better to stick to using [Mentions](#mention) as defined below.
-
-Another example would be tagging a Note or an Article, but the semantic meaning of this is unclear, at least for most current social use-cases.
-
 ## Tagging Links {#links}
 
 In practice, The primary usage of `tag` in most current implementations is to establish a microsyntax. Microsyntaxes are substrings of `name`, `summary`, and `content` that should be linked to or replaced by some rich entity.
@@ -214,13 +183,42 @@ Consider the following Note:
 }
 ```
 
+## Tagging Objects {#objects}
+
+In theory, you could tag an Object to show that it is somehow referentially associated with the current Object.
+
+An example application would be the Instagram or Facebook "tag a person in this image" feature, which might be implemented something like this:
+
+```json
+{
+	"id": "https://social.example/objects/e9c427d8-cef1-48bd-ab89-59a6df29673b",
+	"type": "Image",
+	"url": "https://cdn.social.example/1578798509203652608.jpg",
+	"tag": [
+		"https://facebook.com/users/1"
+	]
+}
+```
+
+```json
+{
+	"id": "https://facebook.com/users/1",
+	"type": "Person",
+	"name": "Mark Zuckerberg"
+}
+```
+
+However, it might be better to stick to using [Mentions](#mention) as defined below.
+
+Another example would be tagging a Note or an Article, but the semantic meaning of this is unclear, at least for most current social use-cases.
+
 ### Emoji {#emoji}
 
 <p class="callout warning">This is an extension type.</p>
 
 See for more: <https://docs.joinmastodon.org/spec/activitypub/#emoji>
 
-A sub-type of Link that refers to a `:custom_emoji:`, typically used for replacing a plain-text substring with an inline image (by implementations that do not otherwise support arbitrary inline images).
+An object node that refers to a `:custom_emoji:`, typically used for replacing a plain-text substring with an inline image (by implementations that do not otherwise support arbitrary inline images).
 
 #### Implementation details {#emoji-implementation}
 
