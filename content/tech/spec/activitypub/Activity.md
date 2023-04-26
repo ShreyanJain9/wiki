@@ -3,15 +3,61 @@
 
 # Activity
 
-an Activity is just an object that has an `actor`
+an Activity is just an object that has an `actor`. it represents an action that was performed.
 
 {{<toc>}}
 
-## what does it mean to be an Activity
+## activities in activitypub
 
-for C2S: if it has `actor` then do not wrap it in a Create when it gets POSTed to outbox
+activities are meant to be POSTed to the outbox in C2S (by the Client), then if the Server is also a Federated Server, they get delivered to recipients' inboxes via POST to inbox (by the Federated Server)
 
-## implementations
+for C2S: if it has `actor` then do not wrap it in a Create when it gets POSTed to outbox. otherwise, per [[AP § 6.2.1 "Object creation without a Create Activity"](https://www.w3.org/TR/activitypub/#object-without-create)]:
+- make a new `Create` to wrap the object in `object`
+- copy over `to`/`cc`/`bto`/`bcc`/`audience` from the object to the activity.
+- [not explicitly stated:] set `actor` on the activity equal to the current authorized user, then copy that over to `object.attributedTo`
+- generate an `id` for both the `Create` and the `object`, unless it is transient [[how do we determine this? perhaps a client explicitly specifies `id=null`?]]
+- return the `id` of the activity via the `Location` header
+
+for S2S: check `to`/`cc`/`bto`/`bcc`/`audience` on the activity. dereference any collections with a recursion limit (possibly n=1). add all discovered inboxes to a list. remove `bto`/`bcc`. POST to the list of discovered inboxes.
+
+some activity types have side-effects defined in the activitypub spec, sections 6 (c2S) and 7 (s2s)
+
+### (any Activity)
+
+if it has `actor` then do not wrap it in a Create when it gets POSTed to outbox
+
+- C2S: MUST assign `id` to the activity, ignoring anything that might be set by the Client, unless it is transient [[how to determine this?]]
+- C2S: add it to the current actor's outbox [[if not transient?]]
+- C2S: Return HTTP `201 Created`, `Location: <id>`
+- S2S: warning, if it's an extension activity type then its side effects may not be understood. there may be fallback strategies to display `name`/`summary`/`content`
+
+### Create
+
+### Update
+
+### Delete
+
+### Add
+
+### Remove
+
+### Follow
+
+### Like
+
+### Block (C2S only)
+
+### Announce (S2S only)
+
+### Accept (S2S only)
+
+### Reject (S2S only)
+
+### Undo
+
+## activities in the fediverse
+
+in practice and in actuality, the "fediverse" largely does not conform to any of the 3 activitypub profiles. because c2s is not used, there are basically no Clients or Servers. and even on the s2s side, the side effects described by activitypub are not applied in any meaningful way. the *real* side effects vary per project. it can be argued that the fediverse is actually not built on activitypub, but rather, it is built on activitystreams 2.0 + linked data notifications. (it is a little-known fact that the `inbox` property in activitypub is actually `ldp:inbox` as defined by the linked data platform.)
 
 ### mastodon
 

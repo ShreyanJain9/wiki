@@ -2,7 +2,7 @@
 +++
 # Actor
 
-an actor is just something that has `inbox` and `outbox`
+an actor is just something that has `inbox` and `outbox`. it represents an entity that can perform activities.
 
 {{<toc>}}
 
