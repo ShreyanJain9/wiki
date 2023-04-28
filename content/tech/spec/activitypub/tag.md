@@ -208,7 +208,7 @@ An example application would be the Instagram or Facebook "tag a person in this 
 }
 ```
 
-However, it might be better to stick to using [Mentions](#mention) as defined below.
+However, it might be better to stick to using [Mentions](#mention) as defined above.
 
 Another example would be tagging a Note or an Article, but the semantic meaning of this is unclear, at least for most current social use-cases.
 
