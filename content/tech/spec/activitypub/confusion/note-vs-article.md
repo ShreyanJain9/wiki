@@ -105,3 +105,5 @@ type: Note
 name: "Pronouns"
 content: "they/them"
 ```
+
+note that Note might still have an id, though... so really it's just a vague ill-defined "intention". for example, maybe use a Note for a "status update" in a chat/presence sense? like XMPP PEP.

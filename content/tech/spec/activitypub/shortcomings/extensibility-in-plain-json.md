@@ -1,6 +1,3 @@
-+++
-+++
-
 # extensibility for plain-json consumers is underconstrained
 
 the recommendation in the spec is to use JSON-LD for extensions, which leaves open the "best practices" on how might one expect to serialize and parse those extensions.

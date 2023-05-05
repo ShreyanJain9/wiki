@@ -1,10 +1,3 @@
-+++
-+++
-
-# the semantics of some types are unclear or poorly defined
-
-## Note vs Article
-
 see [Note vs Article]({{<relref "note-vs-article.md" >}}) for more. but basically:
 
 in summary:
@@ -19,10 +12,4 @@ the messy general consensus post-spec seems to be about "intention", but this is
 
 it would have been better to define it similarly to HTML `<article>` perhaps? an independent unit of writing? one that is published and therefore might reasonably be syndicated?
 
-## Mention
-
-> Mention: A specialized Link that represents an @mention.
-
-this is an incredibly narrow definition and also one that is often useless. what's so special about an @mention?
-
-it would have been better to define it in terms of, idk, generating a notification or something? like a webmention?
+and maybe Note should have been forced plaintext. idk. at the very least the distinction should be better explained.
