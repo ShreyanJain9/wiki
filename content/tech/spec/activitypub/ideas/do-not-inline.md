@@ -1,6 +1,4 @@
-### maybe objects shouldn't be inlined tho
-
-spritely magenc golem ocappub etc etc etc
+maybe objects shouldn't be inlined tho? spritely magenc golem ocappub etc etc etc
 
 ```yaml
 id: alice.example/54078934249073290847321094/activity/1
