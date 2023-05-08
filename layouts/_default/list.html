@@ -9,6 +9,11 @@
 				<h1 class="section-title">{{.File.Dir}}</h1>
 				{{ end }}
 			</header>
+			<div class="content">
+				<div class="container">
+					{{.Content}}
+				</div>
+			</div>
 			{{ with .Sections }}
 				<nav>
 				<h2 class="subsections-title">Sub-sections of {{ or $.File.ContentBaseName "index" }}</h2>
