@@ -1,0 +1,3 @@
+boolean. if true, indicates that the information contained within the object (content, etc) is considered "sensitive", in the sense that viewer discretion may be advised, e.g. "NSFW" material.
+
+when encountered, usually the assumption is that the object's content will be hidden or collapsed behind a warning of some sort. in mastodon, the `summary` will be used as the text of the warning, and the `content` will be hidden below it; furthermore, anything in `attachment` will be hidden behind a sensitive content click-through instead of being directly previewable.
