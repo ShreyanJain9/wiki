@@ -1,4 +1,4 @@
-## Message type
+# what if we had a Message type
 
 Message is an IntransitiveActivity?
 
