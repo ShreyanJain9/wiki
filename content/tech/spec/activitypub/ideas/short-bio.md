@@ -1,0 +1,1 @@
+on actors that get converted to profiles/accounts, mastodon uses `summary` for bio, but we could use `content` for a "long bio" and reserve `summary` for a "short bio"

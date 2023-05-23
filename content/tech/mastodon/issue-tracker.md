@@ -5,89 +5,25 @@ autonumbering = true
 
 ## (closeable)
 
-- #1062 remote follow dialog should make it easier to recommend or remember your instance [was fixed by cookies but not closed. later the whole "remote follow" dialog was removed in 4.0]
-- #1411 Hide compose box on mobile, require a button to open it [we used to have a FAB and now we have a button in header]
-- #1669 hide a specific status [introduced as part of filter revamp for 4.0]
-- #1783 clearer error messages on "remote follow" fail [remote follow dialog was removed]
-- #1842 clearer error message on resolving nonexistent account [now says `0 results` instead of `422 Remote account could not be resolved`]
-- #2050 "A Fractal, Hierarchical, and Signal View of the Fediverse" [inactionable -- seems to be an esoteric essay rather than a bug or feature request]
-- #2334 Issues adding emoji with Microsoft Edge on Windows 10 Mobile [discontinued platform and also not strictly a mastodon issue -- it's a bug in microsoft edge]
-- #2467 GIF upload fails with "file size too big" despite not being too big [seems to no longer be an issue?]
-- #2517 Admin API [this has been implemented, right?]
-- #2614 home feed missing some posts from followed users [probably stale; last reported on v1.3.2]
-- #2771 add `follow_requested` to Relationship entity [added as `requested`]
-- #2879 better filters [regex filters have been removed in favor of API filters; this issue is outdated]
-- #3032 ambiguity of translated terms/policy [v4.0 removed translations for terms/policy]
-- #3181 windows phone 10 / edge browser doesn't animate gifs [no further details provided, user sold their phone so no longer affected; windows 10 mobile is discontinued]
-- #3239 make tag and status views interactive [resolved by v4.0 deprecating the static views]
-- #3283 overflow on compose box causes jumpy behavior [cannot reproduce in latest firefox, issue was filed back in 1.x days]
-- #3499 support RFC 4685 rel="replies" in Atom feed [atom feed has been deprecated and removed]
-- #3534 midori 0.5 failed to load javascript [deployment issue from v1.4.1 related to CSP headers]
-- #3663 add "remote only" option for federated public timeline [this has been added]
-- #3680 support 3gpp media upload for conversion [seems to have started working at some point?]
-- #3766 make columns narrower when adding new ones [was filed against v1.4.3 ui; current advanced ui has fixed-width columns so this is no longer relevant]
-- #3825 always allow remote following even when logged in locally [remote follow and also permalink profile views have been both removed]
-- #3845 show replies on boost permalinks and not just on the original status [no longer possible or relevant -- boosts no longer get their own permalinks, also there are no permalinks anymore]
-- #3888 Crosspost to Twitter [many reasons why this isn't feasible]
-- #3971 [a deployment issue with an unclear problem statement]
-- #4239 profile header image always animates, doesn't respect accessibility settings to turn animations off [not relevant anymore for multiple reasons... seems animation for logged-out users is on-hover only, but also headers don't animate at all anymore?]
-- #4385 allow searching favourited posts [kind of covered by full-text search, no?]
-- #4507 enabling push notifications in one browser will log you out of other browsers (invalid access token) [seems not to be happening anymore]
-- #4588 unauthenticated API to allow local username lookups [added as `api/v1/accounts/lookup` in v3.4]
-- #4892 [issues with share button and protocol handler, which was removed]
-- #4961 [issue with webpack not reloading automatically with vagrant. a pr was merged and i can confirm the issue never happened for me, so it was most likely fixed but just not closed]
-- #5055 post visibility icons [fixed by #14123]
-- #5337 hide your network [duplicate of #6901, implemented in #7532]
-- #5395 link back to home page from public pages [obsolete; public pages were removed]
-- #5784 [someone confused that local timeline isn't geographically local]
-- #5788 remember timeline position [we have timeline markers now]
-- #5915 rename lists and support filters on lists [done now]
-- #6041 add self to own list [done now]
-- #6069 notification for when someone signs up on bridge.joinmastodon.org [which is long dead]
-- #6079 replying to post mentioning multiple users does not focus on compose box [yes it does now i tested it]
-- #6087 auto-CW long posts or auto-CW certain users [first half done, second half is dupe of #6078 after filter revamp]
-- #6137 deleted accounts appear in searches [not anymore? can't replicate]
-- #6220 insert spaces between text and custom emoji shortcode when selecting custom emoji [tested, it does this now]
-- #6239 captioning images resets focus to compose box [no longer valid; images are captioned in a separate modal now]
-
 ### (duplicates)
-
-- #2677 duplicate of #1162 ("upload remote pics via link" vs "insert picture from url")
-- #3987 duplicate of #3812 ("multi timeline" vs "add my own timeline" -- both deal with allowing users to choose domains for their custom timeline)
-- #4098 duplicate of #609 ("private profiles" vs "private-ish profiles")
-- #5491 duplicate of #1306 ("timeline jumps due to incoming posts")
-- #5710 duplicate of #4305 ("make getting started movable" vs "make context column movable")
-- #6093 duplicate of #6078 (filter out by username includes filtering yourself out)
-- #6288 duplicate of #34 (backfill statuses from remote accounts)
 
 ### (maybe closeable?)
 
-- #547 "show more" link doesn't appear if column is empty [is this still relevant?]
-- #774 no confirmation for reporting a post [there are confirmations now, right?]
 - #813 split docker-compose deployment into "web" and "streaming" [i.e. separate image for streaming API -- is this relevant to current docker strategy?]
 - #1298 add custom entries to Getting Started [the motivation was adding a link to code of conduct, although this could be more generally useful outside that context]
 - #1306 timeline scroll jumps when new posts come in [addressed by slow mode?]
   - #1774 timeline scroll jumps when posts are deleted
-- #2122 standardize sections in `/about` page
-- #2514 external links should open in new tab [don't we add `target=_blank` on unhandled links now?]
-- #2760 compatibility issue with Jolla SailfishOS browser [reported in v1.3]
 - #3283 composing a long post with overflow will cause jumping on typing
 - #3369 ctrl+z after posting used to restore the text to the compose box, but now it does not
-- #3815 confirmation dialogue for unboosting [currently tied to boost confirmation modal, but could be split out into its own toggle?]
 - #3858 allow pinning favourites column and user profile columns [half-fixed -- you can pin favs but you still can't pin user profiles]
-- #3874 show moderated users and servers [half-fixed -- you can audit the list of moderated servers, but not moderated users]
-- #4057 link to imprint from every page if instance is in germany [perhaps in the footer? or is the about page enough to satisfy this]
-- #4449 pgup/pgdn should navigate the page, not statuses [seems to be resolved? this is now done with jk]
 - #4701 show private posts in hashtag search if you are authorized to see them [closed as "intentional" in #2440 but idk maybe it could be reconsidered]
 - #4869 filters should apply to emoji [this was filed back when regex filters were a thing, and seems to have been shown to work even back then, so was not reproducable] [small caveat: could extract a feature request out of this for allowing filtering an emoji by its shortcode? but probably not needed]
 - #5403 reblog `url` is sometimes null when it marked non-nullable [i think this isn't happening anymore]
-- #5612 Support `longdesc` on images [longdesc is deprecated and obsolete apparently]
 - #5737 store metadata about relationship changes (when/why) [we have profile notes now so that probably works]
 - #5896 allow mods to force hide all media from an account [is this the same as "force-mark as sensitive" or is it more like "reject media"?]
 - #6033 postgres 10 has a long-running query on public timelines? [is this still relevant]
 - #6064 remote suspensions do not always reach you for followers? [has this been fixed now? issue is from 2017]
 - #6073 hashtag cloud on landing/about page [is this addressed by trending tags on explore page?]
-- #6135 404 on follow attempt [old issue, not replicated]
 - #6250 don't send email notifications if a notification is seen in an active session [isn't this done by default now? there's a setting to "always send"]
 - #6321 "quiet hours" mode where notifications are not shown [this is done at the OS level]
 
@@ -111,6 +47,7 @@ autonumbering = true
 - #3061 on post with multiple GIF attachments, going to next one will cause it to not animate
 - #3473 hard refresh needed to see multiple pages of new posts?
 - #3638 check if post is deleted when clicking reply button; if it is, then remove the post instead of allowing you to compose a reply
+- #3680 support 3gpp media upload for conversion [seems to have started working at some point? or maybe reproduced?]
 - #3703 if a mention cannot be processed, the whole job fails. maybe it shouldn't?
 - #3742 opening a timeline with videos in it can be slow
 - #3809 long-press to boost without confirmation (when confirmation modal is enabled for boosting)
@@ -142,6 +79,17 @@ autonumbering = true
 - #6208 if the timeline is full of filtered posts, it doesn't load more
 - #6329 atom feeds have a CORS issue
 - #6338 zwsp is wrongly included in URL parser but correctly removed by hashtag parser
+- #6426 audit log breaks when statuses are deleted
+- #6432 custom emojis with long shortcodes can break the emoji list in /admin/custom_emojis
+- #6554 preview opengraph thumbnail for instance
+- #6681 [can't change email more than once?]
+- #6923 admin view of statuses doesn't show privacy scope [idk if this was ever fixed in a redesign]
+- #6938 welcome email has poorly styled username@domain handle
+- #6991 Net::LDAP simple method not supported
+- #7025 german translation of 2fa challenge is unclear
+- #7145 overscroll? [idk what this means]
+- #7170 allow resolving a report "with note" even when no note is included
+- #7174 bad ssl on websockets causes entire application to not render
 
 ### (feature requests)
 
@@ -158,6 +106,7 @@ autonumbering = true
   - #3812 custom timeline with user-defined domains (also apply filters to public timelines)
   - #3917 let admins define additional timelines including certain domains
 - #983 custom audiences / arbitrary addressing (specifically, decide which servers to send your post to)
+  - #7135 mutuals-only posts
 - #1133 Drafts
 - #1162 Insert picture from URL [assuming this means download and reupload? although it would be more interesting to allow remote storage and simply embed it / use the remote url directly...]
 - #1208 post to category / topic [like google+ collections]
@@ -185,6 +134,20 @@ autonumbering = true
 - #6094 embed profiles or timelines
 - #6122 tell the user when they are impacted by instance domain blocks
 - #6332 show which local users follow a remote user in the moderation UI
+- #6353 admin-configured limits on invites
+- #6379 saved searches
+- #6387 admin panel diagnostics page
+- #6403 option to not convert GIF to video
+- #6603 `media_only` on home timeline
+- #6635 domain mute without hiding notifications
+- #6912 downscale images on upload if they exceed the limit
+- #6942 follow local public timelines from other instances [conceptually should be handled by groups instead?]
+- #6958 tag avatar and/or header as sensitive/nsfw
+- #6982 add accounts to lists without following them [bad idea imo]
+- #7042 "View profile as" someone else
+- #7066 "Force-unlisted" option for moderating profiles
+- #7132 "Bunker mode" to make an account look deleted when it is really not [or possibly just hide the public profile?]
+- #7169 upload subtitles with videos
 
 #### (more niche)
 
@@ -200,6 +163,12 @@ autonumbering = true
 - #6084 user analytics
 - #6090 RSS feed for all interactions on a post?
 - #6350 choose the date format localization for timestamps
+- #6569 SVG avatar support
+- #6726 activity graph and/or calendar for browsing profiles' post history
+- #6920 write your own translation of other people's posts
+- #7014 add CSS classes based on hashtags, so admins can style certain tagged posts differently from others
+- #7082 admin-configured hints for avatar/header image policies
+- #7201 show which lists an account is in (from the timeline)
 
 ### (meta)
 
@@ -216,6 +185,21 @@ autonumbering = true
 - #5797 prevent replying to someone without mentioning them
 - #5883 allow pagination from oldest to newest [or discover the oldest post id somehow]
 - #6136 API request limit should be higher -- 100 statuses?
+- #6412 external "share" service at share.joinmastodon.org that redirects to your existing instance
+- #6474 disable storage of IP addresses
+- #6812 rename "local" timeline to something that makes it clear it is not geographically local
+- #6828 separate "pinned posts" into separate tab on profiles
+  - #19657 combine pinned/featured {posts, hashtags, profiles} into one tab on profiles
+- #6884 media usage numbers should be publicly shown? [or possibly to logged-in users, i would assume?]
+- #6895 domain blocks with "reject media" should be explained clearly to users, because it looks like a bug currently
+- #6899 a way to obtain media attachment cdn links again
+- #6970 sensitive content toggle should be per-timeline instead of all-or-nothing. opting into sensitive content from followed users is not the same as opting into sensitive content from *everyone*
+- #6976 allow logging in with username instead of email
+- #7122 reason should be required on reports
+- #7127 notify users when they are affected by moderation actions or decisions
+- #10743 author and show hashtags outside of `content`
+  - #7250 [alternatively to above:] hide hashtags at the end of a post's `content` [though this can change meaning]
+- #7274 show "post unavailable" placeholders whenever a status exists but is not visible (due to privacy or being deleted)
 
 #### (vague or inactionable)
 
@@ -232,6 +216,14 @@ autonumbering = true
 - #5723 granular post privacy (control whether post goes to public timelines, is available unauthenticated, local-only, etc)
 - #5774 ability to change your instance domain (LOCAL_DOMAIN)
 - #6192 scss stylesheets should have more color variables
+- #6892 reserve usage of `#admin` tag for users who are actually admins [i don't think this is feasible, but if it were, you might want to have it be variable and admin-defined? but remote users exist, so...]
+- #6945 disable DMs on an instance level [this makes no sense as-is, unless you have a "public only" mode that rejects anything not addressed to public?]
+- #6957 default to not sending sensitive field when adding a status [idk what this means]
+- #6992 rich preview cards don't have enough options? [idk what this issue is really about]
+- #7114 admins/mods should be able to have a second email for moderation notifications
+- #7155 temporarily cache following/follower lists
+- #7164 `noindex` should apply to statuses even when boosted [but there's no way to apply it to only part of a page...]
+- #7254 some kind of opt-in or out of "bot interactions" [this needs to be more meaningful imo]
 
 ---
 
@@ -252,13 +244,21 @@ autonumbering = true
 - #3139 keep track of which users and domains are being widely blocked by local users
 - #3811 automatically rake/prune inactive accounts and delete them
 - #4296 greylist federation. instances are silenced by default until approved by the admin.
-- #5204 indicate the file size on failed uploads so that you can better tell why something went wrong
-- #5619 Suport Alibaba Object Storage as an alternative to S3
-- #5729 Replace Paperclip with Shrine
 - #5972 Rename "always mark media as sensitive" to "Mark media as sensitive by default" [TODO: Low hanging fruit]
 - #6007 button to generate archive exports on behalf of the user, then email them with a link to that archive
 - #6031 Full-width japanese period gets included as part of path query in URLs (after the slash). this can break links
 - #6351 URL renderer / linkifier adds empty span.invisible to the end of many links
+- #6701 URL ending with period does not linkify the period, leading to a broken link
+- #6825 empty status with CW should not convert CW to status
+- #7056 automatically rake/prune old account headers
+
+#### specific to media
+
+- #5204 indicate the file size on failed uploads so that you can better tell why something went wrong
+- #5619 Suport Alibaba Object Storage as an alternative to S3
+- #5729 Replace Paperclip with Shrine
+- #6352 invalid PNG upload returns 500 Server Error instead of 400 Bad Request
+- #6377 hfr video (240fps) transcoded to normal video (60fps), maybe there should be an option
 
 #### specific to search
 
@@ -277,6 +277,8 @@ autonumbering = true
 - #4964 use a versioned json-ld @context [currently mastodon just uses the unversioned activitystreams context, but i'm not entirely sure what issues this may cause if any and why]
 - #5500 human-readable errors on trying to post to activitypub inbox endpoint
 - #6262 converted statuses should append Hashtags to the end of the status_content maybe?
+- #6849 deletes are not retried after failure?
+- #6878 do not fetch only the first `attributedTo`
 
 #### REST API
 
@@ -284,6 +286,11 @@ autonumbering = true
 - #5273 API response should include Relationship on each Notification, so that you can tell when a notification came from a follower/following/mutual [arguably you could embed the Relationship on the Account but that might be expensive]
 - #5492 API for a client app to update its own registered information (such as `redirect_uris`) using an app token generated from the stored `client_id`+`client_secret`
 - #6040 errors should have a non-localized string key to identify which specific error occurred (can be matched exactly)
+- #6360 get only ids of accounts from followers/following?
+- #6549 API to get ids of deleted statuses without streaming
+- #7020 PATCH update_credentials should be replaced with PATCH settings/profile for more intuitive way of updating profile settings like display name, avatar, header image, etc.
+- #7021 PUT api/v1/preferences to save new preferences, not just GET existing ones
+- #7108 get all admins/mods
 
 #### Streaming API
 
@@ -321,6 +328,7 @@ autonumbering = true
 
 - #18955 Revamp filters to cover more use cases
   - #6078 Filters ignore username
+  - #6596 filter yourself in home timeline
 
 ---
 
@@ -352,6 +360,7 @@ autonumbering = true
 - #6034 clarify the difference between "desktop notifications" and "push notifications" toggles
 - #6035 notification settings are messy and poorly laid out
 - #6210 show when a boost was made, not just the original post timestamp
+- #6407 show when there are unresolved reports
 - #7860 show confirmation dialog before more things
   - #3702 show confirmation dialog before posting
 
@@ -360,6 +369,9 @@ autonumbering = true
 - #2054 switching to advanced web UI should load "getting started" instead of a duplicate home/notifications/compose column [this seems to be done only sometimes?]
 - #3771 customize the tab bar in the upper-left corner of advanced ui on desktop layout (currently hardcoded to getting started / local / federated / settings / log out)
 - #4305 allow moving context column instead of having it on the far right
+- #6440 Pin multiple columns of the same type
+- #7017 columns should be drag-and-drop instead of rearranged by left/right buttons
+- #7050 add workspaces to advanced ui, choose sets of columns to be visible together
 
 #### specific to authoring a post
 
@@ -390,10 +402,13 @@ autonumbering = true
 - #1255 allow wider aspect ratios instead of zoom-cropping thumbnail [auto height instead of `object-fit: cover`?]
 - #2034 when a modal is open, pause all animations in the background
 - #6254 "reduce motion" should disable side-scrolling animation for preview of multiple images
+- #6983 better handling of PeerTube embed/preview
+- #7031 embed remote videos
 
 ##### specific to authoring media
 
 - #3860 basic image editing (cropping, rotating, etc) in the web app before posting
+- #6879 focal point is misleading. circled area is not in the center, nor is it fully inside the thumbnail crop. [possibly calculation or rendering of focal point may be bugged?]
 
 #### specific to notifications
 
@@ -404,6 +419,7 @@ autonumbering = true
 
 - #2019 relaunch the onboarding tutorial at any time
 - #3264 show instance info in onboarding tutorial (so that users are aware of rules/etc)
+- #6867 choose your language filters after signup
 
 #### nonspecific
 
@@ -423,10 +439,12 @@ autonumbering = true
 - #1379 switching columns on mobile should be optimized
 - #1469 use SVG icons instead of web fonts
 - #5504 components are re-rendered whenever redux state changes, due to `mapStateToProps`
+- #6438 memory usage continues to grow as new items are loaded into timelines
 
 ##### architecture
 
 - #4478 reload a single column or conversation without reloading the whole tab
+- #7113 minimize the compose box on mobile
 
 ##### bugs
 
@@ -435,6 +453,7 @@ autonumbering = true
 ##### unimplemented API features
 
 - #1900 clear one notification [i.e. implement `/api/v1/notifications/:id/dismiss`]
+- #6702 role badges
 
 ##### staying in-app
 
