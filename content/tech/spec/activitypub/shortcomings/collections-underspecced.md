@@ -24,3 +24,7 @@ what might this imply is needed for activitypub?
 	- what about multiple ordering criteria? SQL has `ORDER BY`
 	- actually, is a query language a good fit here?
 - `reversed`? more like `order: Ascending` or `order: Descending`?
+
+## querying
+
+how do you tell if an arbitrary object is included in a collection or not? without iterating over the entire collection, that is.
