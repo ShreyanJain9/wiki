@@ -36,10 +36,11 @@
 }
 
 #search-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-inline-size: 100%;
+	width: 100%;
+	max-width: 18rem;
+	display: grid;
+	grid-template-columns: 20ch 8ch;
+	gap: 1rem;
 }
 
 #search-input {
@@ -48,10 +49,13 @@
 	border-radius: 100rem;
 	border: 0;
 	padding: 0.5rem 1rem;
-	margin-inline-end: 0.5rem;
-	flex-shrink: 1;
-	block-size: 2rem;
 	box-sizing: border-box;
+	resize: horizontal;
+	width: 100%;
+	grid-column: 1;
+	block-size: 2rem;
+	line-height: 1rem;
+	font-size: 0.75rem;
 }
 
 #search-submit {
@@ -60,5 +64,8 @@
 	background: var(--primary-accent);
 	color: var(--primary-accent-text);
 	border-radius: 4px;
+	grid-column: 2;
 	block-size: 2rem;
+	line-height: 1rem;
+	font-size: 0.75rem;
 }

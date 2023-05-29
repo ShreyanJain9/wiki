@@ -16,7 +16,7 @@
 				<nav>
 				<h2 class="subsections-title">Sub-sections of {{ or $.File.ContentBaseName "index" }}</h2>
 				<ul class="subsections">
-				{{ range where . "Section" "!=" "search" }}
+				{{ range where . "Section" "not in" (slice "search" "sitemap") }}
 					<li>
 						<a href="{{ .Permalink }}">
 							{{ path.Base (path.Split .File.Path).Dir }}/

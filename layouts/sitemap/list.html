@@ -1,0 +1,41 @@
+{{ define "main" }}
+<main>
+	<header>
+		<div class="container">
+			<h1>{{.Title}}</h1>
+			<p>alternate formats: <a href="/sitemap.xml">[XML]</a></p>
+		</div>
+	</header>
+	<hr>
+	<section>
+		<div class="container">
+			<header>
+				<h2>most recently updated</h2>
+			</header>
+			<ul class="page-list">
+				{{ range sort .Site.RegularPages ".Lastmod.UTC" "desc" }}
+				<li>
+					<a href="{{.Permalink}}">
+						{{.File.Path}}
+					</a>
+					<br>
+					<span>{{ .Lastmod.UTC.Format "2006-01-02" }}</span>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
+	</section>
+</main>
+<style>
+	.page-list {
+		display: flex;
+		flex-flow: column;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+	hr {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+</style>
+{{ end }}
