@@ -24,4 +24,6 @@ updated = "2021"
 - it seems like it just downloads to a folder idk
 
 ### Just download it with thunderbird or something?
-- idk
+- idk[^1]
+
+[^1]: test
