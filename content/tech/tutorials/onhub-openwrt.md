@@ -144,3 +144,19 @@ luci-app-attendedsysupgrade
 
 - same ssid for 2g/5g but preferring 5g, i.e. without getting stuck on 2g.  (again: "band steering"?)
   - it sort of works but idk if it actually works. stuff connects to 2g more often than i'd expect. what i did was set 2g power to 15db, leave it at 20mhz 
+
+## mesh
+
+prereqs to install: ath10k (non-CT) qca988x firmware and driver
+
+- ath10k-firmware-qca988x
+- kmod-ath10k
+
+you can now uninstall the old stuff (idk if you *have* to, but you can and i did)
+
+- ath10k-firmware-qca988x-ct
+- kmod-ath10k-ct
+
+reboot.
+
+you should now be able to get your 802.11s interface working. i used radio2 in ac mode on channel 48 with 80mhz width. ymmv
