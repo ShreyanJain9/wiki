@@ -159,4 +159,8 @@ you can now uninstall the old stuff (idk if you *have* to, but you can and i did
 
 reboot.
 
-you should now be able to get your 802.11s interface working. i used radio2 in ac mode on channel 48 with 80mhz width. ymmv
+you should now be able to get your 802.11s interface working. i used radio2 in ac mode on channel 48 with 80mhz width. ymmv, but make sure the settings you choose are the same on all devices.
+
+same with the client wifi networks. use the same channels and everything
+
+for the wifi client stuff i had to use the lower channels bc the higher channels were giving me a driver error. `readlog -n 20 -f`
