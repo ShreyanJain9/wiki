@@ -13,6 +13,8 @@ i suppose part of this is the difficulty in finding purpose with such a website.
 
 ---
 
+<https://mastodon.social/@trwnh/109619229067921050>
+
 it's so hard to find inspiration for good design, partly because people pump out so much bad design and try to promote it for profit
 
 all the stuff that floats to the top of the SEO bullshit puddle is really cookie-cutter website templates from some listicle titled "25 best free templates" or "40 free site themes" or whatever
@@ -22,3 +24,11 @@ the thing that really gets to me though is that it's so hard to tell a narrative
 i mean, who am i? who is a? what information do i *really* want to impart on anyone who wants to know more about me? no clue...
 
 and then if i manage to come up with some info about me: how do i present that visually? ordering, layout, style, etc. and also, what story am i telling? how do i tell it?
+
+---
+
+<https://mastodon.social/@trwnh/109593314053174200>
+
+also i guess when it comes to myself, i feel like i have a lack of content. nothing to really show for myself. just looking at my website and it feels incomplete, a bit lacking, with no clearly visible shortcoming or way to fix it, but i can feel it nonetheless
+
+the reason why i have an easier time solving other people's problems than my own is that it's easier to think outside the box when you're not the one in the box

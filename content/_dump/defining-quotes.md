@@ -56,3 +56,19 @@ semantics aside, i think functionally the difference is really the fallback
 - a Note with inReplyTo + quoteReply=true would fall back to a regular reply. this means that when reply controls get added, you get quote control "for free"
 
 the other functional difference between those two is whether the "quote" gets added to `shares` or to `replies`
+
+---
+
+also tangentially i've thought about what people think a quote is vs what it actually is, the dimensions, its primary function, etc
+
+to me, the way i see quotes is essentially as a "loud reply" or as a "breakout thread".
+
+the former use-case could be handled by reply+boost. this is actually very easy in the API: just make a button that fires off 2 API calls.
+
+the latter could be handled by copypasting a link into a new post. this is much harder to detect and display. optinally mention
+
+really the problem with twitter "quote tweets" is that they conflated the two use-cases
+
+you were *always* notified, regardless of whether someone was talking "about" you or "to" you (no consideration for replies)
+
+plus the fact it was a new thread was stripping context, you could no longer see all the posts in one thread ("breaking out" isn't always wanted)

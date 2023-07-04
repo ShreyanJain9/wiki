@@ -43,3 +43,9 @@ here on the World Wide Web you have two threats: capitalist enclosure, and toxic
 in short, "social media" is a failed model invented by capitalists. what we need is a "social web". focus on people, not "content".
 
 want to entertain yourself? that's fine, there can be media hubs and curators for that. but your communications and your media consumption should be separate.
+
+---
+
+honestly as much as meta gets tiring, at least these are conversations that can actually be had with a nonzero chance at actually shaping things.
+
+you think twitter or instagram gives a shit what its users want or think? nope, it's all about driving ad revenue

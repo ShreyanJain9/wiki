@@ -1,0 +1,1 @@
+`preferredUsername` is expected to map back into webfinger but there are additional length and character restrictions placed on top of it, and these vary between projects

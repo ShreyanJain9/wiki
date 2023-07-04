@@ -1,0 +1,5 @@
+<https://mastodon.social/@trwnh/109826683171183861>
+
+if/when i get around to building [untitled social app] i want to set some hard design expectations for it before even thinking about if/when/how to release it (and which parts of it). there's a lot of expectations i want to challenge, i don't want to take anything for granted. if anything, whatever i build will simply be the practical application of my grand unified communication theory. it's as much an experiment and learning process as it is a tool or utility.
+
+which is to say: any code i write or software i build, it will not be the primary product. the primary product will be the documentation and reasoning behind it. it will be in researching existing protocols and ecosystems, then identifying how they map onto the theoretical patterns and structures. nail the recipe before baking the cake.
