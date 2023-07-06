@@ -1,1 +1,0 @@
-inspired by facebook pokes or by Yo. just sends a notification. transient, no id.

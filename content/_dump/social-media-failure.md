@@ -1,7 +1,0 @@
-the more i think about and research communication paradigms, i'm starting to think more and more that this whole "social network" thing is just fundamentally flawed. in pure terms you might send a message or publish a resource. but with these social networks it's not that clear cut. you're never unambiguously sending a message or publishing a resource, but instead, some weird hybrid that we call a "post". not quite message, not quite resource. it exists in part or in whole exclusively on-network
-
-and i guess that makes it easier to put in a silo which is how companies maintain their profit motive.
-
-but in replicating the design of these social networks we replicate their properties too. fedi hasn't entirely moved past silos because it's embedded in the design level. thankfully not the protocol level, but still. it's going to persist in implementations as long as we limit ourselves to "twitter but better", "instagram but better", etc. we're not building the commons that we could build.
-
-and the lack of clarity in our metaphors and associated abstractions leads to subtle violations of what people expect. there should be a clearer split. consider the duality of tumblr as both a social network and a publishing platform. they're making this split more apparent than it used to be. in addition to username.tumblr.com for blogs they now have tumblr.com/username for network profiles.

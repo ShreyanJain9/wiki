@@ -1,1 +1,0 @@
-mastodon, when editing a post, does not generate an Update activity in the outbox, but instead will silently and retroactively change the object of the Create

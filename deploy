@@ -1,4 +1,0 @@
-#!/bin/bash
-rm -r public/
-hugo
-rsync -avz --delete public/ a@trwnh.com:/srv/http/wiki.trwnh.com/public

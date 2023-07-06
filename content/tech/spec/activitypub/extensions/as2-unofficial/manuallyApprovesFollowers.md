@@ -1,1 +1,0 @@
-boolean. if true, can be used as a hint that the actor will not immediately or automatically Accept your Follow.

@@ -1,6 +1,6 @@
-baseURL = 'https://wiki.trwnh.com/'
+baseURL = 'https://wiki.shreyanjain.net/'
 languageCode = 'en-us'
-title = 'wiki.trwnh.com'
+title = 'wiki.shreyanjain.net'
 enableGitInfo = true
 disableKinds = ["taxonomy", "term"]
 
